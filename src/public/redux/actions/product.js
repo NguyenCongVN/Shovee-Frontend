@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'https://stormy-springs-80236.herokuapp.com/products';
+const url = 'http://10.0.2.2:3000/products';
 
 export const addProduct = (token,category,price,images,city,description,name,stok, brand) => {
     var data = new FormData();
@@ -16,7 +16,6 @@ export const addProduct = (token,category,price,images,city,description,name,sto
     data.append('category',category);
     data.append('stok', stok);
     data.append('brand', brand);
-
    return {
        type: 'POST_PRODUCT',
        payload: axios.post(url, data, {

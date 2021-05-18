@@ -24,7 +24,7 @@ class App extends Component {
 							<AntDesign name="arrowleft" size={24} color={'#EE4D2D'}/>
 						</TouchableOpacity>
 						<View style={styles.title}>
-							<Text style={{color: '#000000', fontSize: 17}}>Alamat Saya</Text>
+							<Text style={{color: '#000000', fontSize: 17}}>Địa chỉ giao hàng</Text>
 						</View>
 					</View>
 				</View>
@@ -33,7 +33,7 @@ class App extends Component {
 				</View>
 				<View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
 					<TouchableOpacity style={styles.buttonTambah} onPress={()=>this.props.navigation.navigate('AddAddress')}>
-						<Text style={{color: '#000'}}>Tambah alamat baru</Text>
+						<Text style={{color: '#000'}}>Thêm địa chỉ giao hàng</Text>
 					</TouchableOpacity>
 				</View>
 			</React.Fragment>

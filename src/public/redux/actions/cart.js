@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'https://stormy-springs-80236.herokuapp.com/cart'
+const url = 'http://10.0.2.2:3000/cart'
 
 export const fetchCart = (token) => {
     return {

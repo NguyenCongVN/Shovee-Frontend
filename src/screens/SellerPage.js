@@ -97,111 +97,87 @@ class App extends Component {
 									<View>
 										<Text style={{fontSize: 18, fontWeight: '600', color: '#000'}}>{this.props.user.data.user.username}</Text>
 									</View>
-									<View>
-										<View style={{flexDirection: 'row'}}>
-											<Text style={{fontSize: 12}}>Pengikut 777</Text>
-											<View style={{marginLeft: '6%', height: '100%', borderWidth: 0.4}}></View>
-											<Text style={{marginLeft: '6%',fontSize: 12}}>Mengikuti 111</Text>
-										</View>
-									</View>
 								</View>
 							</View>
 							<View style={styles.body, {paddingTop: 5}}>
 								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
 									<MaterialCommunityIcons name="store" style={{flex: 1, marginLeft: '2%'}} size={25} color="#EE4D2D" />
-									<Text style={styles.textPenjualan}>Penjualan Saya</Text>
-									<Text style={{fontSize: 11}}>Lihat Riwayat Penjualan</Text>
+									<Text style={styles.textPenjualan}>Cửa hàng</Text>
+									<Text style={{fontSize: 11}}>Xem tất cả hàng</Text>
 									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
 								</TouchableOpacity>
 								<View style={styles.itemPenjualan}>
 									<TouchableOpacity style={styles.statusPenjualan} onPress={() => alert('Soon!')}>
 										<MaterialCommunityIcons name="truck" size={30}/>
-										<Text style={styles.textStatus}>Perlu Dikirim</Text>
+										<Text style={styles.textStatus}>Đang giao hàng</Text>
 									</TouchableOpacity>
 									<TouchableOpacity style={styles.statusPenjualan} onPress={() => alert('Soon!')}>
-										<MaterialCommunityIcons name="cancel" size={30}/>
-										<Text style={styles.textStatus}>Dibatalkan</Text>
+										<MaterialCommunityIcons name="check" size={30}/>
+										<Text style={styles.textStatus}>Đã nhận</Text>
 									</TouchableOpacity>
 									<TouchableOpacity style={styles.statusPenjualan} onPress={() => alert('Soon!')}>
 										<MaterialIcons name="compare-arrows" size={30}/>
-										<Text style={styles.textStatus}>Pengembalian</Text>
-									</TouchableOpacity>
-									<TouchableOpacity style={styles.statusPenjualan} onPress={() => alert('Soon!')}>
-										<Entypo name="dots-three-horizontal" size={30}/>
-										<Text style={styles.textStatus}>Lainnya</Text>
+										<Text style={styles.textStatus}>Trả hàng</Text>
 									</TouchableOpacity>
 								</View>
 							</View>
 							<View style={styles.body, {paddingTop: 5}}>
 								<TouchableOpacity style={styles.items} onPress={()=>this.props.navigation.navigate('AddProduct')}>
 									<AntDesign name="pluscircleo" style={{flex: 1, marginLeft: '3%'}} size={25} color="#EE4D2D"/>
-									<Text style={styles.text}>Tambah Produk Baru</Text>
-									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
-								</TouchableOpacity>
-							</View>
-							<View style={styles.body, {paddingTop: 5}}>
-								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
-									<FontAwesome5 name="money-check" style={{flex: 1, marginLeft: '3%'}} size={20} color="#EE4D2D"/>
-									<Text style={styles.text}>Saldo Penjual</Text>
-									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
-								</TouchableOpacity>
-							</View>
-							<View style={styles.body}>
-								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
-									<FontAwesome5 name="money-check-alt" style={{flex: 1, marginLeft: '3%'}} size={20} color="#EE4D2D"/>
-									<Text style={styles.text}>Penghasilan Saya</Text>
-									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
-								</TouchableOpacity>
-							</View>
-							<View style={styles.body}>
-								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
-									<MaterialCommunityIcons name="truck" style={{flex: 1, marginLeft: '3%'}} size={25} color="#EE4D2D"/>
-									<Text style={styles.text}>Jasa Kirim Saya</Text>
-									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
-								</TouchableOpacity>
-							</View>
-							<View style={styles.body}>
-								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
-									<MaterialIcons name="star" style={{flex: 1, marginLeft: '3%'}} size={25} color="#EE4D2D"/>
-									<Text style={styles.text}>Lihat Penilaian Toko</Text>
-									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
-								</TouchableOpacity>
-							</View>
-							<View style={styles.body}>
-								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
-									<Foundation name="graph-trend" style={{flex: 1, marginLeft: '3%'}} size={25} color="#EE4D2D"/>
-									<Text style={styles.text}>Performa Toko</Text>
-									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
-								</TouchableOpacity>
-							</View>
-							<View style={styles.body}>
-								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
-									<MaterialCommunityIcons name="assistant" style={{flex: 1, marginLeft: '3%'}} size={25} color="#EE4D2D"/>
-									<Text style={styles.text}>Asisten Penjual</Text>
-									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
-								</TouchableOpacity>
-							</View>
-							<View style={styles.body}>
-								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
-									<AntDesign name="questioncircleo" style={{flex: 1, marginLeft: '3%'}} size={20} color="#EE4D2D"/>
-									<Text style={styles.text}>Pusat Bantuan</Text>
-									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
-								</TouchableOpacity>
-							</View>
-							<View style={styles.body, {paddingTop: 5}} >
-								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
-									<MaterialCommunityIcons name="store" style={{flex: 1, marginLeft: '2%'}} size={25} color="#EE4D2D" />
-									<Text style={styles.textPenjualan}>Lihat Toko Saya</Text>
-									<Text style={{fontSize: 11, color: '#EE4D2D'}}>shovee.co.id/sobat</Text>
+									<Text style={styles.text}>Thêm mặt hàng</Text>
 									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
 								</TouchableOpacity>
 							</View>
 							<View style={styles.body, {paddingTop: 5}}>
 								<View style={styles.items}>
 									<FontAwesome name="box-open" style={{flex: 1, marginLeft: '2%'}} size={18} color="#EE4D2D" />
-									<Text style={{flex:9, color:'#000'}}>Produk</Text>
+									<Text style={{flex:9, color:'#000'}}>Các mặt hàng</Text>
 								</View>
 							</View>
+							<View style={styles.body, {paddingTop: 5}}>
+								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
+									<FontAwesome5 name="money-check" style={{flex: 1, marginLeft: '3%'}} size={20} color="#EE4D2D"/>
+									<Text style={styles.text}>Hình thức thanh toán</Text>
+									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
+								</TouchableOpacity>
+							</View>
+							<View style={styles.body}>
+								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
+									<MaterialCommunityIcons name="truck" style={{flex: 1, marginLeft: '3%'}} size={25} color="#EE4D2D"/>
+									<Text style={styles.text}>Nhà vận chuyển</Text>
+									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
+								</TouchableOpacity>
+							</View>
+							<View style={styles.body}>
+								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
+									<Foundation name="graph-trend" style={{flex: 1, marginLeft: '3%'}} size={25} color="#EE4D2D"/>
+									<Text style={styles.text}>Thống kê doanh thu</Text>
+									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
+								</TouchableOpacity>
+							</View>
+							<View style={styles.body}>
+								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
+									<MaterialCommunityIcons name="assistant" style={{flex: 1, marginLeft: '3%'}} size={25} color="#EE4D2D"/>
+									<Text style={styles.text}>Trợ giúp</Text>
+									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
+								</TouchableOpacity>
+							</View>
+							<View style={styles.body}>
+								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
+									<AntDesign name="questioncircleo" style={{flex: 1, marginLeft: '3%'}} size={20} color="#EE4D2D"/>
+									<Text style={styles.text}>Câu hỏi thường gặp</Text>
+									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
+								</TouchableOpacity>
+							</View>
+							<View style={styles.body, {paddingTop: 5}} >
+								<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
+									<MaterialCommunityIcons name="store" style={{flex: 1, marginLeft: '2%'}} size={25} color="#EE4D2D" />
+									<Text style={styles.textPenjualan}>Link Shop</Text>
+									<Text style={{fontSize: 11, color: '#EE4D2D'}}>shopee.com.vn/linkshop</Text>
+									<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '1%'}} size={18}/>
+								</TouchableOpacity>
+							</View>
+
 
 							<View style={{flex:1}}>
 								<View style={{flexDirection:'row'}}>

@@ -29,7 +29,7 @@ const AppTabNavigator = createMaterialTopTabNavigator({
     Home: {
       screen: Home,
       navigationOptions: {
-        tabBarLabel: 'Beranda',
+        tabBarLabel: 'Trang chủ',
         tabBarIcon: ({ tintColor }) => (
           <MaterialCommunityIcons name="home" color={tintColor} size={24} />
         )
@@ -38,7 +38,7 @@ const AppTabNavigator = createMaterialTopTabNavigator({
     Feed: {
       screen: Feed,
       navigationOptions: {
-        tabBarLabel: 'Feed',
+        tabBarLabel: 'Thông báo',
         tabBarIcon: ({ tintColor }) => (
           <MaterialCommunityIcons name="vector-arrange-above" color={tintColor} size={22} />
         )
@@ -47,7 +47,7 @@ const AppTabNavigator = createMaterialTopTabNavigator({
     Mall: {
       screen: Mall,
       navigationOptions: {
-        tabBarLabel: 'Mall',
+        tabBarLabel: 'Siêu thị',
         tabBarIcon: ({ tintColor }) => (
           <MaterialIcons name="local-mall" color={tintColor} size={22} />
         )
@@ -56,7 +56,7 @@ const AppTabNavigator = createMaterialTopTabNavigator({
     Notification: {
       screen: Notification,
       navigationOptions: {
-        tabBarLabel: 'Notifikasi',
+        tabBarLabel: 'Thông báo',
         tabBarIcon: ({ tintColor }) => (
           <Icon name="bell-o" color={tintColor} size={22} />
         )
@@ -65,7 +65,7 @@ const AppTabNavigator = createMaterialTopTabNavigator({
     Me: {
       screen: Me,
       navigationOptions: {
-        tabBarLabel: 'Saya',
+        tabBarLabel: 'Tài khoản',
         tabBarIcon: ({ tintColor }) => (
           <Icon name="user" color={tintColor} size={22} />
         )

@@ -12,12 +12,12 @@ class App extends Component {
         super(props);
   
         this.state = {
-    		nama: '',
-    		provinsi: '',
-    		kota: '',
-    		kecamatan: '',
-    		kodepos: '',
-    		alamat: '',
+    		name: '',
+    		province: '',
+    		city: '',
+    		district: '',
+    		zipCode: '',
+    		address: '',
     		loading: false,
     		token: ''
         };
@@ -35,39 +35,39 @@ class App extends Component {
 		});
 	}
 
-    setNama = (data) => {
+    setname = (data) => {
     	this.setState({
-    		nama: data
+    		name: data
     	})
     }
 
-    setProvinsi = (data) => {
+    setprovince = (data) => {
     	this.setState({
-    		provinsi: data
+    		province: data
     	})
     }
 
-    setKota = (data) => {
+    setcity = (data) => {
     	this.setState({
-    		kota: data
+    		city: data
     	})
     }
 
-    setKecamatan = (data) => {
+    setdistrict = (data) => {
     	this.setState({
-    		kecamatan: data
+    		district: data
     	})
     }
 
     setPOS = (data) => {
     	this.setState({
-    		kodepos: data
+    		zipCode: data
     	})
     }
 
-    setAlamat = (data) => {
+    setaddress = (data) => {
     	this.setState({
-    		alamat: data
+    		address: data
     	})
     }
 
@@ -79,12 +79,12 @@ class App extends Component {
 
     		this.props.dispatch(updateProfileUser(
 				this.state.token, 
-				this.state.nama,
-				this.state.provinsi, 
-				this.state.kota,
-				this.state.kecamatan, 
-				this.state.kodepos, 
-				this.state.alamat))
+				this.state.name,
+				this.state.province, 
+				this.state.city,
+				this.state.district, 
+				this.state.zipCode, 
+				this.state.address))
 			.then(()=>{
 				this.setState({
 					loading: false
@@ -96,7 +96,7 @@ class App extends Component {
 				this.setState({
 					loading: false
 				}, () => {
-						alert('Gagal update profile')
+						alert('Không thể cập nhật')
 					})
 				})
 		} else {
@@ -113,7 +113,7 @@ class App extends Component {
 							<AntDesign name="arrowleft" size={24} color={'#EE4D2D'}/>
 						</TouchableOpacity>
 						<View style={styles.title}>
-							<Text style={{color: '#000000', fontSize: 17}}>Alamat Baru</Text>
+							<Text style={{color: '#000000', fontSize: 17}}>Thêm địa chỉ giao hàng</Text>
 						</View>
 					</View>
 				</View>
@@ -121,26 +121,26 @@ class App extends Component {
 					
 				</View>
 				<View style={styles.container}>
-					<TextInput placeholder="Nama" style={styles.items} onChangeText={this.setNama}/>
+					<TextInput placeholder="Tên địa chỉ" style={styles.items} onChangeText={this.setname}/>
 				</View>
 				<View style={styles.container}>
-					<TextInput placeholder="Provinsi" style={styles.items} onChangeText={this.setProvinsi}/>
+					<TextInput placeholder="Tỉnh" style={styles.items} onChangeText={this.setprovince}/>
 				</View>
 				<View style={styles.container}>
-					<TextInput placeholder="Kota/Kabupaten" style={styles.items} onChangeText={this.setKota}/>
+					<TextInput placeholder="Thành phố" style={styles.items} onChangeText={this.setcity}/>
 				</View>
 				<View style={styles.container}>
-					<TextInput placeholder="Kecamatan" style={styles.items} onChangeText={this.setKecamatan}/>
+					<TextInput placeholder="Quận" style={styles.items} onChangeText={this.setdistrict}/>
 				</View>
 				<View style={styles.container}>
-					<TextInput placeholder="Kode POS" style={styles.items} onChangeText={this.setPOS}/>
+					<TextInput placeholder="Mã bưu điện" style={styles.items} onChangeText={this.setPOS}/>
 				</View>
 				<View style={styles.container}>
-					<TextInput placeholder="Alamat Lengkap" multiline={true} style={styles.itemsLengkap} onChangeText={this.setAlamat}/>
+					<TextInput placeholder="Địa chỉ" multiline={true} style={styles.itemsLengkap} onChangeText={this.setaddress}/>
 				</View>
 				<View style={{position: 'absolute', bottom: 0, width: '100%'}}>
 					<TouchableOpacity style={styles.buttonTambah} onPress={()=>this.updateProfile()}>
-						<Text style={{color: '#FFFFFF'}}>Kirim</Text>
+						<Text style={{color: '#FFFFFF'}}>Trở lại</Text>
 					</TouchableOpacity>
 				</View>
 			</React.Fragment>

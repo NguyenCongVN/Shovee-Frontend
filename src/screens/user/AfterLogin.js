@@ -71,7 +71,7 @@ class AfterLogin extends Component {
 					<View style={styles.headerTop}>	
 						<TouchableOpacity style={styles.store} onPress={() => this.props.navigation.navigate('SellerPage')}>
 							<View style={{flex: 4, marginLeft: 30}}>
-								<Text style={{color: '#EE4D2D', fontSize: 12, fontWeight: '600'}}>Toko Saya</Text>
+								<Text style={{color: '#EE4D2D', fontSize: 12, fontWeight: '600'}}>Trang bán hàng</Text>
 							</View>
 							<View style={{flex: 1}}>
 								<SimpleLineIcons name="arrow-right" color={'#EE4D2D'}/>
@@ -84,7 +84,7 @@ class AfterLogin extends Component {
 							onPress={() => this.props.navigation.navigate('Cart')}>
 							<MaterialCommunityIcons name="cart-outline" size={24} color={'#FFFFFF'}/>
 						</TouchableHighlight>
-						<TouchableOpacity style={styles.chat} onPress={() => alert('Soon!')}>
+						<TouchableOpacity style={styles.chat} onPress={() => alert('Đang nâng cấp!')}>
 							<SimpleLineIcons name="bubbles" size={24} color={'white'}/>
 						</TouchableOpacity>
 					</View>
@@ -97,13 +97,6 @@ class AfterLogin extends Component {
 						<View style={{flexDirection: 'column', margin: 5, marginLeft: 10}}>
 							<View>
 								<Text style={{fontSize: 18, fontWeight: '600', color: '#FFFFFF'}}>{this.props.user.data.user.username}</Text>
-							</View>
-							<View>
-								<View style={{flexDirection: 'row'}}>
-									<Text style={{fontSize: 12, color: '#FFFFFF'}}>Pengikut 777</Text>
-									<View style={{marginLeft: '6%', height: '100%', borderColor: '#FFFFFF', borderWidth: 0.4}}></View>
-									<Text style={{marginLeft: '6%',fontSize: 12, color: '#FFFFFF'}}>Mengikuti 111</Text>
-								</View>
 							</View>
 						</View>
 						</React.Fragment>
@@ -120,73 +113,53 @@ class AfterLogin extends Component {
 					<View style={styles.itemPesanan}>
 						<TouchableOpacity style={styles.statusPesanan} onPress={() => alert('Soon!')}>
 							<SimpleLineIcons name="wallet" size={30}/>
-							<Text style={styles.textStatus}>Belum Bayar</Text>
+							<Text style={styles.textStatus}>Đang đặt hàng</Text>
 						</TouchableOpacity>
 						<TouchableOpacity style={styles.statusPesanan} onPress={() => alert('Soon!')}>
 							<MaterialCommunityIcons name="truck" size={30}/>
-							<Text style={styles.textStatus}>Dikemas</Text>
+							<Text style={styles.textStatus}>Đang vận chuyển</Text>
 						</TouchableOpacity>
 						<TouchableOpacity style={styles.statusPesanan} onPress={() => alert('Soon!')}>
 							<MaterialIcons name="move-to-inbox" size={30}/>
-							<Text style={styles.textStatus}>Dikirim</Text>
+							<Text style={styles.textStatus}>Đã nhận</Text>
 						</TouchableOpacity>
 						<TouchableOpacity style={styles.statusPesanan} onPress={() => alert('Soon!')}>
 							<EvilIcons name="star" size={37}/>
-							<Text style={styles.textStatus}>Beri Penilaian</Text>
+							<Text style={styles.textStatus}>Yêu thích</Text>
 						</TouchableOpacity>
 					</View>
 					<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
 						<MaterialCommunityIcons name="cellphone" style={{flex: 1, marginLeft: '3%'}} size={25} color="#369e55"/>
-						<Text style={styles.text}>Pulsa & Produk Digital</Text>
+						<Text style={styles.text}>Nạp thẻ ĐT</Text>
 						<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '-1%'}} size={18}/>
 					</TouchableOpacity>
 				</View>
 				<View style={styles.body}>
 					<TouchableOpacity style={styles.items} onPress={() => {this.props.navigation.navigate('Wishlist')}}>
 						<MaterialCommunityIcons name="heart-outline" style={{flex: 1, marginLeft: '3%'}} size={25} color="#EE4D2D"/>
-						<Text style={styles.text}>Favorit Saya</Text>
+						<Text style={styles.text}>Sản phẩm yêu thích</Text>
 						<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '-1%'}} size={18}/>
 					</TouchableOpacity>
 					<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
 						<SimpleLineIcons name="clock" style={{flex: 1, marginLeft: '3%'}} size={25} color="#3a5998"/>
-						<Text style={styles.text}>Terakhir Dilihat</Text>
+						<Text style={styles.text}>Lịch sử mua hàng</Text>
 						<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '-1%'}} size={18}/>
 					</TouchableOpacity>
 					<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
 						<MaterialCommunityIcons name="wallet" style={{flex: 1, marginLeft: '3%'}} size={25} color="#EE4D2D"/>
-						<Text style={styles.text}>ShoveePay</Text>
+						<Text style={styles.text}>Ví shopee</Text>
 						<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '-1%'}} size={18}/>
 					</TouchableOpacity>
 					<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
 						<FontAwesome name="share-alt" style={{flex: 1, marginLeft: '3%'}} size={25} color="#3a5998"/>
-						<Text style={styles.text}>Undang Teman</Text>
+						<Text style={styles.text}>Chia sẻ</Text>
 						<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '-1%'}} size={18}/>
 					</TouchableOpacity>
 					<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
 						<MaterialCommunityIcons name="coin" style={{flex: 1, marginLeft: '3%'}} size={25} color="#edd51a"/>
-						<Text style={styles.text}>Koin Shovee</Text>
+						<Text style={styles.text}>Shopee xu</Text>
 						<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '-1%'}} size={18}/>
 					</TouchableOpacity>
-					<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
-						<MaterialCommunityIcons name="star-outline" style={{flex: 1, marginLeft: '3%'}} size={25} color="#369e55"/>
-						<Text style={styles.text}>Penilaian Saya</Text>
-						<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '-1%'}} size={18}/>
-					</TouchableOpacity>
-				</View>
-				<View style={styles.body}>
-					<TouchableOpacity style={styles.items} onPress={() => this.props.navigation.navigate('AccountSettings')}>
-						<SimpleLineIcons name="user" style={{flex: 1, marginLeft: '3%'}} size={25} color="#3a5998"/>
-						<Text style={styles.text}>Pengaturan Akun</Text>
-						<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '-1%'}} size={18}/>
-					</TouchableOpacity>
-					<TouchableOpacity style={styles.items} onPress={() => alert('Soon!')}>
-						<SimpleLineIcons name="question" style={{flex: 1, marginLeft: '3%'}} size={25} color="#369e55"/>
-						<Text style={styles.text}>Pusat Bantuan</Text>
-						<SimpleLineIcons name="arrow-right" style={{flex: 1, marginRight: '-1%'}} size={18}/>
-					</TouchableOpacity>
-				</View>
-				<View style={styles.body}>
-				
 				</View>
 			</React.Fragment>
 		)

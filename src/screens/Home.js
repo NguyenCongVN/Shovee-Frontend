@@ -112,7 +112,6 @@ class CardsProduct extends Component {
 
   constructor(props) {
     super(props);
-
   }
 
   render() {
@@ -126,13 +125,9 @@ class CardsProduct extends Component {
           <View style={{flexDirection:'row', marginTop:4}}>
             <View style={{flex:1}}>
               <View style={{flexDirection:'row', justifyContent:'flex-start', alignItems:'center'}}>
-                <Text style={{color:'#ee4d2d', fontSize:12, marginTop:3.5}}>RP</Text>
+                <Text style={{color:'#ee4d2d', fontSize:12, marginTop:3.5}}>VNĐ</Text>
                 <Text style={{color:'#ee4d2d', fontSize:16}}>{this.props.item.price}</Text>
               </View>
-            </View>
-            
-            <View style={{flex:1, alignItems:'flex-end', justifyContent:'center'}}>
-              <Text style={{fontSize:8, color:'#000'}}>99 TERJUAL</Text>
             </View>
           </View>
         </View>
@@ -219,52 +214,52 @@ class Home extends Component {
       data: [
         {
           id: '1',
-          title: 'Fashion New',
+          title: 'Hàng mới nhập',
           image: 'https://cf.shopee.co.id/file/65164c330fe5dcd4b549c26ba132b082_mdpi',
-          title2: 'Gratis Ongkir Min. Blj RP0',
+          title2: 'Miễn phí vận chuyển',
           image2: 'https://cf.shopee.co.id/file/c5b56ff42e59c067f6ff42b7f8bf8ebb_mdpi',
         },
         {
           id: '2',
-          title: 'Shopee Liga 1',
-          title2: 'Cashback & Voucher',
+          title: 'Giải đấu shopee',
+          title2: 'Mã giảm giá',
           image: 'https://cf.shopee.co.id/file/28af3bde68e263fbb22cf7e721995aca_mdpi',
           image2: 'https://cf.shopee.co.id/file/45d56e0479139407d21058ebf0db2c18_mdpi',
         },
         {
           id: '3',
           image: 'https://cf.shopee.co.id/file/67f3e3f21980f16e56708f90ac824677_mdpi',
-          title: 'Produk Digital',
+          title: 'Nạp thẻ, dịch vụ',
           image2: 'https://cf.shopee.co.id/file/1adc3f8eb48e266fbb2c7a6f96b07632_mdpi',
-          title2: 'Shopee Games'
+          title2: 'Trò chơi Shopee'
         },
         {
           id: '4',
-          image: 'https://cf.shopee.co.id/file/2141bfac013f0ddec9edcead24c5dd3a_mdpi',
-          title: 'Serba 10 Ribu',
+          image: 'https://retailfilosofi.com/wp-content/uploads/2021/04/shopee-food.jpg',
+          title: 'Đồ ăn shopee',
           image2: 'https://cf.shopee.co.id/file/73cd5727e938469f3a76e75063b38651_mdpi',
-          title2: 'Shopee Live'
+          title2: 'Trực tiếp'
         },
         {
           id: '5',
           image: 'https://cf.shopee.co.id/file/ed12a75188e87fa8e2abdd22987817cd_mdpi',
-          title: 'Men Saleee',
+          title: 'Dành cho nam',
           image2: 'https://cf.shopee.co.id/file/31ae2807a3ba16f6d178d790984ad364_mdpi',
-          title2: 'Elektronik Center'
+          title2: 'Trung tâm công nghệ'
         },
         {
           id: '6',
           image: 'https://cf.shopee.co.id/file/76d3682ef1e8d6509884396c76882b19_mdpi',
-          title: 'Shopee Mart',
+          title: 'Siêu thị shopee',
           image2: 'https://cf.shopee.co.id/file/eda88d3aeb6b530fb474748b3745b2eb_mdpi',
-          title2: 'Bayar Di Tempat'
+          title2: 'Cửa hàng Shopee'
         },
         {
           id: '7',
           image: 'https://cf.shopee.co.id/file/02d68f4802d362eebc2651cf5fffc818_mdpi',
           title: 'Garansi',
           image2: 'https://cf.shopee.co.id/file/089a2d01c0eec65b4dd8868eb9744457_mdpi',
-          title2: 'Shopee24'
+          title2: 'Shopee 24h'
         },
         {
           id: '8',
@@ -278,14 +273,14 @@ class Home extends Component {
           image: 'https://cf.shopee.co.id/file/739145261c83cb94365a04092a2a3d99_mdpi',
           title: 'Koin Receh',
           image2: 'https://cf.shopee.co.id/file/92adf331a35427749be394080dcdb076_mdpi',
-          title2: 'Promo Bank'
+          title2: 'Thêm ngân hàng'
         },
         {
           id: '10',
           image: 'https://cf.shopee.co.id/file/28f927fafe477945932b2cb571023be7_mdpi',
-          title: 'More',
+          title: 'Thêm',
           image2: 'https://cf.shopee.co.id/file/063614d109a1921becac69eb6fafdba7_mdpi',
-          title2: 'Semua Promo'
+          title2: ''
         }
       ]
     };
@@ -298,7 +293,6 @@ class Home extends Component {
 
   fetchCart = async () => {
       const userToken = await AsyncStorage.getItem('Token');
-      console.log(this.props)
       await this.props.dispatch(fetchCart(userToken))
   }
 
@@ -362,7 +356,8 @@ class Home extends Component {
                 <View style={{flex:1, backgroundColor:'#fff', paddingTop:5}}>
                   <TouchableOpacity style={{flexDirection:'row', marginHorizontal:13, marginTop:5, marginBottom:5, justifyContent:'center', width:50, height:60}}>
                     <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-                      <Image source={{uri:item.image}} style={{width:42, height:42}} />
+                      <Image source={{uri:item.image}} style={{width:42, height:42  }} />
+                      {console.log(item.image)}
                       <Text numberOfLines={2} style={{fontSize:8, textAlign:'center', color:'#000'}}>{item.title}</Text>
                     </View>
                   </TouchableOpacity>
@@ -377,11 +372,11 @@ class Home extends Component {
             }} />
           
           <View style={{flex:1}}>
-            <Image source={require('../assets/img/promo-shopee.jpeg')} style={{height:109, width:'100%'}} />
+            <Image source={{uri :'https://boxvisual.vn/content/images/size/w2000/2020/09/sh-0701.jpg'}} style={{height:170, width:'100%'}} />
           </View>
 
-          <View style={{flex:1}}>
-            <Image source={require('../assets/img/promo-shopee2.jpeg')} style={{height:80, width:'100%'}} />
+          <View style={{flex:1 , marginTop : 10}}>
+            <Image source={{uri : 'https://blog.onshop.asia/wp-content/uploads/2020/04/huong-dan-canh-ban-hang-tren-shopee.png'}} style={{height:170, width:'100%' }} />
           </View>
 
           <View style={{backgroundColor:'#fff', flex:1}}>
@@ -391,7 +386,7 @@ class Home extends Component {
               </View>
               <View style={{flex:1}}>
                 <TouchableOpacity style={{alignItems:'flex-end'}}>
-                  <Text>Lihat Lainnya <AntDesign name='right' /></Text>
+                  <Text>Xem thêm <AntDesign name='right' /></Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -410,11 +405,11 @@ class Home extends Component {
           <View style={{backgroundColor:'#fff', flex:1, marginTop:10}}>
             <View style={{flexDirection:'row', padding:10}}>
               <View style={{flex:1}}>
-                <Text style={{fontSize:16, color:'#ee4d2d'}}>SHOPEE LIVE</Text>
+                <Text style={{fontSize:16, color:'#ee4d2d'}}>Trực tiếp</Text>
               </View>
               <View style={{flex:1}}>
                 <TouchableOpacity style={{alignItems:'flex-end'}}>
-                  <Text>Lihat Lainnya <AntDesign name='right' /></Text>
+                  <Text>Xem thêm <AntDesign name='right' /></Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -439,22 +434,17 @@ class Home extends Component {
               </View>
               <View style={{flex:1}}>
                 <TouchableOpacity style={{alignItems:'flex-end'}}>
-                  <Text>Lihat Lainnya <AntDesign name='right' /></Text>
+                  <Text>Xem thêm <AntDesign name='right' /></Text>
                 </TouchableOpacity>
               </View>
             </View>
             <View style={{flexDirection:'row', padding:10}}>
               <View style={{flex:1.7,}}>
-                <Text style={{fontSize:13}}><AntDesign name='checkcircleo'/> 7 Hr Pengembalian</Text>
+                <Text style={{fontSize:13}}><AntDesign name='checkcircleo'/> Giao hàng dưới 7 giờ</Text>
               </View>
               <View style={{flex:1}}>
                 <View>
-                  <Text style={{fontSize:13}}><AntDesign name='checkcircleo' /> 100% Ori</Text>
-                </View>
-              </View>
-              <View style={{flex:1, alignItems:'center'}}>
-                <View>
-                  <Text style={{fontSize:13}}><AntDesign name='checkcircleo' /> Gratis Ongkir</Text>
+                  <Text style={{fontSize:13}}><AntDesign name='checkcircleo' /> 100% chính hãng</Text>
                 </View>
               </View>
             </View>
@@ -482,12 +472,12 @@ class Home extends Component {
 
             <View style={{flexDirection:'row', backgroundColor:'#fff', padding: 10, borderBottomWidth:1, borderBottomColor:'rgba(0,0,0,0.05)'}}>
               <View style={{flex:1}}>
-                <Text style={{color:'#ee4d2d', fontSize:16, fontFamily:'HelveticaNeueMedium', fontWeight:'300'}}>REKOMENDASI</Text>
+                <Text style={{color:'#ee4d2d', fontSize:16, fontFamily:'HelveticaNeueMedium', fontWeight:'300'}}>Hàng của bạn</Text>
               </View>
 
               <View style={{flex:1, alignItems:'flex-end', justifyContent:'center'}}>
                 <TouchableOpacity>
-                  <Text>Lihat Lainnya <AntDesign name='right' /></Text>
+                  <Text>Xem thêm <AntDesign name='right' /></Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -506,7 +496,7 @@ class Home extends Component {
 
             <View style={{flexDirection:'row', justifyContent:'center', flex:1, backgroundColor:'#fff', borderWidth:1, borderColor:'#ee4d2d', borderRadius:6, marginVertical:15, marginHorizontal:10}}>
               <TouchableOpacity style={{paddingHorizontal:10,paddingVertical:8}} onPress={()=>this.loadMoreFlatlist()}>
-                <Text style={{color:'#ee4d2d'}}>Lihat Lainnya</Text>
+                <Text style={{color:'#ee4d2d'}}>Xem thêm</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -520,27 +510,11 @@ class Home extends Component {
     const datacarousel = [
       {
         "id": '339964',
-        "imagePath": "https://cf.shopee.co.id/file/webp/167d17a4d0733942a5853ae5305108cd_xxhdpi", // URL
+        "imagePath": "https://boxvisual.vn/content/images/size/w2000/2020/09/sh-0701.jpg", // URL
       },
       {
         "id": '33995',
-        "imagePath": "https://cf.shopee.co.id/file/webp/baa1cd10eda6eedbafee8f002ae6b391_xxhdpi",
-      },
-      {
-        "id": '33995dsf4',
-        "imagePath": 'https://cf.shopee.co.id/file/webp/f3824ab80b89d29677eca72163f93565_xxhdpi',
-      },
-      {
-        "id": '3399545dsf4',
-        "imagePath": 'https://cf.shopee.co.id/file/webp/1836a466998e4d1f7cca52275028f6be_xxhdpi',
-      },
-      {
-        "id": '33993465dsf4',
-        "imagePath": 'https://cf.shopee.co.id/file/webp/abec0363e8defc836985fa884529470a_xxhdpi',
-      },
-      {
-        "id": '33993465d585',
-        "imagePath": 'https://cf.shopee.co.id/file/webp/286bb3d889034d103f8576cb6119bc71_xxhdpi',
+        "imagePath": "https://afamilycdn.com/2017/son-tung-final-1-1508383977243.jpg",
       },
     ];
 
@@ -650,7 +624,7 @@ class Home extends Component {
             <TouchableOpacity style={{flex:2.5, backgroundColor:'#fff',paddingHorizontal:13, paddingVertical:3, justifyContent:'center', borderRadius:3}} onPress={() => {this.props.navigation.navigate('Search')}}>
               <View style={{flexDirection:'row'}}>
                 <AntDesign name='search1' size={18} />
-                <Text style={{fontSize:16, color:'#ee4d2d', marginLeft:5}}>Sobat Balkon</Text>
+                <Text style={{fontSize:16, color:'#ee4d2d', marginLeft:5}}>Tìm kiếm</Text>
               </View>
             </TouchableOpacity>
 
@@ -659,7 +633,7 @@ class Home extends Component {
                 <TouchableOpacity onPress={() => {this.state.isLogin ? this.props.navigation.navigate('Cart') : this.props.navigation.navigate('Login')}}>
                   <AntDesign name='shoppingcart' size={30} color={'#fff'} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => alert('Soon!')}>
+                <TouchableOpacity>
                   <AntDesign name='message1' color={'#fff'} size={28} style={{marginLeft:30}} />
                 </TouchableOpacity>
               </View>

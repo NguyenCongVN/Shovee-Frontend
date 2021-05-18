@@ -24,7 +24,7 @@ class App extends Component {
 							<AntDesign name="arrowleft" size={24} color={'#EE4D2D'}/>
 						</TouchableOpacity>
 						<View style={styles.title}>
-							<Text style={{color: '#000000', fontSize: 17}}>Ubah Nama</Text>
+							<Text style={{color: '#000000', fontSize: 17}}>Đổi tên</Text>
 						</View>
 						<TouchableOpacity style={styles.check} onPress={() => this.props.navigation.goBack()}>
 							<Text>{'Simpan'.toUpperCase()}</Text>

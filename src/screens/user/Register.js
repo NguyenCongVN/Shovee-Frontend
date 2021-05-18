@@ -8,7 +8,6 @@ import { register } from '../../public/redux/actions/auth'
 class Register extends Component {
 	constructor (props) {
 		super(props)
-
 		this.state = {
 			nomorhp:''
 		}

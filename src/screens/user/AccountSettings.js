@@ -38,7 +38,7 @@ export default class App extends Component {
 							<AntDesign name="arrowleft" size={24} color={'#EE4D2D'}/>
 						</TouchableOpacity>
 						<View style={styles.title}>
-							<Text style={{color: '#000000', fontSize: 17}}>Pengaturan Akun</Text>
+							<Text style={{color: '#000000', fontSize: 17}}>Cài đặt</Text>
 						</View>
 						<TouchableOpacity style={styles.chat} onPress={() => alert('Soon!')}>
 							<SimpleLineIcons name="bubbles" size={24} color={'#EE4D2D'}/>
@@ -46,16 +46,16 @@ export default class App extends Component {
 					</View>
 				</View>
 				<View style={{marginTop: 80, backgroundColor: '#f2f2f2', height: 40, paddingLeft: 25, padding: 10}}>
-					<Text>Akun Saya</Text>
+					<Text>Tài khoản</Text>
 				</View>
 				<View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
 					<TouchableOpacity style={{ width: '100%', height: 50, flex: 1, justifyContent: 'center', paddingLeft: 30, borderTopWidth: 1, borderColor: '#f2f2f2'}} onPress={()=>this.props.navigation.navigate('Profile')}>
-						<Text style={{color: '#000'}}>Profil Saya</Text>
+						<Text style={{color: '#000'}}>Thông tin cá nhân</Text>
 					</TouchableOpacity>
 				</View>
 				<View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
 					<TouchableOpacity style={{ width: '100%', height: 50, flex: 1, justifyContent: 'center', paddingLeft: 30, borderBottomWidth: 1, borderTopWidth: 1, borderColor: '#f2f2f2'}} onPress={()=>this.props.navigation.navigate('AddressSettings')}>
-						<Text style={{color: '#000'}}>Alamat Saya</Text>
+						<Text style={{color: '#000'}}>Địa chỉ</Text>
 					</TouchableOpacity>
 				</View>
 				<View style={{backgroundColor: '#f2f2f2', height: 20}}>
@@ -63,7 +63,7 @@ export default class App extends Component {
 				</View>
 				<View style={{flexDirection: 'row', margin: 13, alignItems: 'center', justifyContent: 'center'}}>
 					<TouchableOpacity style={styles.buttonLogout} onPress={()=>this.userLogout()} >
-						<Text style={{color: '#FFFFFF', textAlign: 'center'}}>Logout</Text>
+						<Text style={{color: '#FFFFFF', textAlign: 'center'}}>Đăng xuất</Text>
 					</TouchableOpacity>
 				</View>
 			</React.Fragment>

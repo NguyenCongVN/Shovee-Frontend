@@ -97,7 +97,7 @@ class App extends Component {
 							<AntDesign name="arrowleft" size={24} color={'#EE4D2D'}/>
 						</TouchableOpacity>
 						<View style={styles.title}>
-							<Text style={{color: '#000000', fontSize: 17}}>Ubah Profil</Text>
+							<Text style={{color: '#000000', fontSize: 17}}>Thay đổi thông tin</Text>
 						</View>
 						<TouchableOpacity style={styles.check} onPress={this.updateImageProfile}>
 							<MaterialCommunityIcons name="check" size={24} color={'#EE4D2D'}/>
@@ -117,39 +117,32 @@ class App extends Component {
 						</View>
 						{ (this.state.loading) ? <Loading /> : <View /> }
 						<TouchableOpacity style={styles.items} onPress={()=>this.props.navigation.navigate('EditProfile')}>
-							<Text style={styles.textLabel}>Nama</Text>
-							<Text style={styles.text}>{ (this.props.user.data.name == '') ? <Text>Belum diatur</Text> : this.props.user.data.name}</Text>
+							<Text style={styles.textLabel}>Tên</Text>
+							<Text style={styles.text}>{ (this.props.user.data.name == '') ? <Text>{this.props.user.data.user.username}</Text> : this.props.user.data.name}</Text>
 						</TouchableOpacity>
 						<View style={styles.items}>
-							<Text style={styles.textLabel}>Username</Text>
+							<Text style={styles.textLabel}>Tên tài khoản</Text>
 							<Text style={styles.text}>{this.props.user.data.user.username}</Text>
 						</View>
 						<TouchableOpacity style={styles.items}>
-							<Text style={styles.textLabel}>Profil</Text>
-							<Text style={styles.text}>Whoops!</Text>
-						</TouchableOpacity>
-						<TouchableOpacity style={styles.items}>
-							<Text style={styles.textLabel}>Ubah Password</Text>
+							<Text style={styles.textLabel}>Đổi mật khẩu</Text>
 						</TouchableOpacity>
 						<View style={{height: 15}}/>
 						<TouchableOpacity style={styles.items} onPress={()=>alert('Soon!')}>
-							<Text style={styles.textLabel}>Jenis Kelamin</Text>
+							<Text style={styles.textLabel}>Giới tính</Text>
 							<Text style={styles.text}>{this.props.user.data.gender}</Text>	
 						</TouchableOpacity>
 						<TouchableOpacity style={styles.items} onPress={()=>alert('Soon!')}>
-							<Text style={styles.textLabel}>Tanggal Lahir</Text>
+							<Text style={styles.textLabel}>Ngày sinh</Text>
 							<Text style={styles.text}>{ (this.props.user.data.tanggal_lahir == '') ? <Text>Belum diatur</Text> : this.props.user.data.tanggal_lahir}</Text>	
 						</TouchableOpacity>
 						<TouchableOpacity style={styles.items} onPress={()=>alert('Soon!')}>
-							<Text style={styles.textLabel}>Telepon</Text>
+							<Text style={styles.textLabel}>SĐT</Text>
 							<Text style={styles.text}>{this.props.user.data.user.phone}</Text>	
 						</TouchableOpacity>
 						<TouchableOpacity style={styles.items} onPress={()=>alert('Soon!')}>
 							<Text style={styles.textLabel}>Email</Text>
 							<Text style={styles.text}>{this.props.user.data.user.email}</Text>	
-						</TouchableOpacity>
-						<TouchableOpacity style={styles.items} onPress={()=>alert('Soon!')}>
-							<Text style={styles.textLabel}>Akun Sosial Media</Text>
 						</TouchableOpacity>
 					</ScrollView>
 				</View>
