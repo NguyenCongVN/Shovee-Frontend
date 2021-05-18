@@ -19,7 +19,7 @@ class Login extends Component {
 	}
 	userLogin = async (data) => {
 		if (this.state.username == '' || this.state.password == '') {
-			alert('Kosong')
+			alert('Lỗi thiếu thông tin')
 		} else {
 
 			await this.setState({
@@ -41,7 +41,7 @@ class Login extends Component {
         		this.setState({
 					loading: false
 				}, () => {
-        			alert('Gagal login')
+        			alert('Thông tin không hợp lệ')
 				})
         	})
 			
@@ -77,18 +77,18 @@ class Login extends Component {
 				<View style={styles.container}>
 					<View style={{width:'80%', marginTop: 30}}>
 					{ (this.state.loading) ? <Loading /> : <View /> }
-						<TextInput style={styles.input} placeholder="Email/Telepon/Username" onChangeText={this.setUsername}/>
-						<TextInput style={styles.input} secureTextEntry={true} placeholder="Password" onChangeText={this.setPassword}/>
+						<TextInput style={styles.input} placeholder="Email/SĐT/Tên tài khoản" onChangeText={this.setUsername}/>
+						<TextInput style={styles.input} secureTextEntry={true} placeholder="Mật khẩu" onChangeText={this.setPassword}/>
 						<TouchableOpacity style={{position: 'absolute', right: 5, top: 65}} onPress={() => this.props.navigation.navigate('ForgetPassword')}>
-							<Text style={{color: '#075d54'}}>Lupa?</Text>
+							<Text style={{color: '#075d54'}}>Quên mật khẩu?</Text>
 						</TouchableOpacity>
 					</View>
 					<TouchableOpacity style={styles.button} onPress={() => this.userLogin({username: this.state.username, password: this.state.password})}>
-						<Text style={{color: '#FFFFFF'}}>{'Log In'.toUpperCase()}</Text>
+						<Text style={{color: '#FFFFFF'}}>{'Đăng nhập'.toUpperCase()}</Text>
 					</TouchableOpacity>
 					<View style={{marginTop: 20}}>
 						<TouchableOpacity onPress={() => alert('Soon!')}>
-							<Text>Butuh bantuan?</Text>
+							<Text>Chưa có tài khoản</Text>
 						</TouchableOpacity>
 					</View>
 					<View style={styles.labelLoginWith}>
@@ -96,7 +96,7 @@ class Login extends Component {
 							<View style={styles.borderLoginWith}></View>
 						</View>
 						<View style={{flex: 3, alignItems: 'center'}}>
-							<Text>Login cepat dengan</Text>
+							<Text>Đăng nhập bằng:</Text>
 						</View>
 						<View style={styles.itemsLoginWith}>
 							<View style={styles.borderLoginWith}></View>
@@ -104,17 +104,17 @@ class Login extends Component {
 					</View>
 					<TouchableOpacity style={styles.loginSMS} onPress={() => alert('Soon!')}>
 						<IconAntDesign name="message1" style={{flex: 1, paddingLeft: 15}} size={25} color="#FFFFFF"/>
-						<Text style={styles.text}>Login melalui SMS</Text>
+						<Text style={styles.text}>Đăng nhập bằng Email</Text>
 						<Text style={{flex: 1}}/>
 					</TouchableOpacity>
-					<TouchableOpacity style={styles.loginLine} onPress={() => alert('Soon!')}>
-						<Icon name="line" style={{flex: 1, paddingLeft: 15}} size={25} color="#FFFFFF"/>
-						<Text style={styles.text}>Login dengan Line</Text>
+					<TouchableOpacity style={styles.loginGoogle} onPress={() => alert('Soon!')}>
+						<Icon name="google" style={{flex: 1, paddingLeft: 15}} size={25} color="#FFFFFF"/>
+						<Text style={styles.text}>Đăng nhập với Google</Text>
 						<Text style={{flex: 1}}/>
 					</TouchableOpacity>
 					<TouchableOpacity style={styles.loginFacebook} onPress={() => alert('Soon!')}>
 						<Icon name="facebook" style={{flex: 1, paddingLeft: 15}} size={25} color="#FFFFFF"/>
-						<Text style={styles.text}>Lanjutkan dengan Facebook</Text>
+						<Text style={styles.text}>Đăng nhập với Facebook</Text>
 						<Text style={{flex: 1}}/>
 					</TouchableOpacity>
 				</View>
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
 		borderRadius: 5,
 		backgroundColor: '#075e54'
 	},
-	loginLine: {
+	loginGoogle: {
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
 		height: 40,
 		elevation: 1,
 		borderRadius: 5,
-		backgroundColor: '#00c300'
+		backgroundColor: 'red'
 	},
 	loginFacebook: {
 		flexDirection: 'row',

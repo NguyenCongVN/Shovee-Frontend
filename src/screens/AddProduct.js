@@ -70,7 +70,7 @@ class App extends Component {
 
 	addProduct = async () => {
 		if(this.state.category == '' && this.state.imageProduct == null && this.state.name == '' && this.state.description == '' && this.state.price == '' && this.state.stok == '' && this.state.brand == '') {
-			Alert.alert('Tambah Produk Error', 'Harap periksa kembali form isian tambah produk anda :) jangan sampai ada yang kosong');
+			Alert.alert('Thêm lỗi sản phẩm ',' Vui lòng kiểm tra để thêm sản phẩm :) đừng để trống');
 		} else {
 
 		await this.setState({
@@ -99,7 +99,7 @@ class App extends Component {
 			this.setState({
 				loading: false
 			}, () => {
-					alert('Gagal tambah barang')
+					alert('Lỗi không thêm được loại')
 				})
 			})
 		}
@@ -114,7 +114,7 @@ class App extends Component {
 							<AntDesign name="arrowleft" size={24} color={'#EE4D2D'}/>
 						</TouchableOpacity>
 						<View style={styles.title}>
-							<Text style={{color: '#000000', fontSize: 17}}>Tambah Produk</Text>
+							<Text style={{color: '#000000', fontSize: 17}}>Thêm sản phẩm</Text>
 						</View>
 						<TouchableOpacity style={styles.check} onPress={() => this.addProduct()}>
 							<MaterialCommunityIcons name="check" size={24} color={'#EE4D2D'}/>
@@ -131,25 +131,25 @@ class App extends Component {
 								this.state.imageProduct != null ? <Image style={{width: 120, height: 120, margin: 2}} source={this.state.imageProduct}/> : <Image/>
 							}
 							<TouchableOpacity style={{width: 120, height: 120, margin: 2, borderWidth: 1, borderRadius: 1, borderStyle: 'dashed', justifyContent:'center'}} onPress={this.handleUpdateImage}>
-								<Text style={{textAlign: 'center',}}>+ Tambah Foto</Text>
+								<Text style={{textAlign: 'center',}}>+ Thêm ảnh</Text>
 							</TouchableOpacity>
 						</View>
 						<View style={styles.items}>
-							<TextInput placeholder="Nama Produk" onChangeText={val => {this.setState({name: val})}} style={{flex: 1}} />
+							<TextInput placeholder="Tên sản phẩm" onChangeText={val => {this.setState({name: val})}} style={{flex: 1}} />
 						</View>
 						<View style={styles.items}>
-							<TextInput placeholder="Deskripsi Produk" multiline={true} style={{textAlignVertical: 'top', height: 100}} onChangeText={val => {this.setState({description: val})}} style={{flex: 1}} />
+							<TextInput placeholder="Thông tin chi tiết" multiline={true} style={{textAlignVertical: 'top', height: 100}} onChangeText={val => {this.setState({description: val})}} style={{flex: 1}} />
 						</View>
 						<View style={{height: 10}} />
 						<View style={styles.items}>
-							<Text style={{color: '#000', flex: 1}}>Kategori</Text>
+							<Text style={{color: '#000', flex: 1}}>Loại</Text>
 							<Picker
 								selectedValue={this.state.category}
 								style={{height: 50, width: 200}}
 								onValueChange={(itemValue, itemIndex) =>
 									this.setState({category: itemValue})
 							}>
-									<Picker.Item value='' label='Pilih Kategori' />
+									<Picker.Item value='' label='Chọn loại hàng' />
 								{
 									this.props.categories.category.data.map(category => (
 										<Picker.Item key={category._id} value={category._id} label={category.name} />
@@ -160,16 +160,16 @@ class App extends Component {
 						</View>
 						<View style={{height: 10}} />
 						<View style={styles.items}>
-							<Text style={{color: '#000', flex: 1}}>Harga</Text>
-							<TextInput placeholder="Atur Harga" onChangeText={val => {this.setState({price: val})}} style={{flex: 1}} />
+							<Text style={{color: '#000', flex: 1}}>Giá bán</Text>
+							<TextInput placeholder="Chọn giá bán" onChangeText={val => {this.setState({price: val})}} style={{flex: 1}} />
 						</View>
 						<View style={styles.items}>
-							<Text style={{color: '#000', flex: 1}}>Stok</Text>
-							<TextInput placeholder="Atur Stok" onChangeText={val => {this.setState({stok: val})}} style={{flex: 1}} />
+							<Text style={{color: '#000', flex: 1}}>Cửa hàng</Text>
+							<TextInput placeholder="Chọn cửa hàng" onChangeText={val => {this.setState({stok: val})}} style={{flex: 1}} />
 						</View>
 						<View style={styles.items}>
-							<Text style={{color: '#000', flex: 1}}>Brand</Text>
-							<TextInput placeholder="Atur Merk" onChangeText={val => {this.setState({brand: val})}} style={{flex: 1}} />
+							<Text style={{color: '#000', flex: 1}}>Nhãn hiệu</Text>
+							<TextInput placeholder="Chọn nhãn hiệu" onChangeText={val => {this.setState({brand: val})}} style={{flex: 1}} />
 						</View>
 					</ScrollView>
 				</View>

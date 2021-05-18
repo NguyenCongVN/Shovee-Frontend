@@ -99,7 +99,7 @@ class Wishlist extends Component {
                             </TouchableOpacity>
 
                             <View style={{flex:6}}>
-                                <Text style={{color:'#000', fontSize:20}}>Favorit Saya</Text>
+                                <Text style={{color:'#000', fontSize:20}}>Hàng yêu thích</Text>
                             </View>
 
                             <View style={{flex:1, alignItems:'flex-end'}}>

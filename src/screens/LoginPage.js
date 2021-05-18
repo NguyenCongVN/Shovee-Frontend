@@ -24,13 +24,13 @@ const LogNavigator = createMaterialTopTabNavigator({
 	Register2: {
 		screen: Register,
 		navigationOptions: {
-	    	tabBarLabel: 'Daftar',
+	    	tabBarLabel: 'Đăng kí',
 	    },
 	},
 	Login: {
 		screen: Login,
 		navigationOptions: {
-	    	tabBarLabel: 'Log In',
+	    	tabBarLabel: 'Đăng nhập',
 	    }
 	}
 },{

@@ -9,7 +9,7 @@ class Register extends Component {
 	constructor (props) {
 		super(props)
 		this.state = {
-			nomorhp:''
+			Phone:''
 		}
 	}
 
@@ -23,30 +23,30 @@ class Register extends Component {
 		})
 	}
 
-	setNomorHP = (values) => {
+	setPhone = (values) => {
 		this.setState({
-			nomorhp: values
+			Phone: values
 		})
 	}
 
-	lanjutDaftar = (data) => {
+	confirmRegister = (data) => {
 		if (data == '') {
-			alert('Kosong!')
+			alert('Lỗi thông tin')
 		} else {
 			this.props.navigation.navigate('Next', data)
 		}
 	}
 
 	render(){
-		console.log(this.state.nomorhp)
+		console.log(this.state.Phone)
 		return(
 			<React.Fragment>
 				<View style={styles.container}>
 					<View style={{width:'80%', marginTop: 30}}>
-						<TextInput style={styles.input} placeholder="Nomor HP" onChangeText={this.setNomorHP}/>
+						<TextInput style={styles.input} placeholder="Số điện thoại" onChangeText={this.setPhone}/>
 					</View>
-					<TouchableOpacity style={styles.button} onPress={() =>  this.lanjutDaftar(this.state.nomorhp)}>
-						<Text style={{color: '#FFFFFF'}}>{'Lanjut'.toUpperCase()}</Text>
+					<TouchableOpacity style={styles.button} onPress={() =>  this.confirmRegister(this.state.Phone)}>
+						<Text style={{color: '#FFFFFF'}}>{'Tiếp tục'.toUpperCase()}</Text>
 					</TouchableOpacity>
 					<View style={{marginTop: '30%'}}>
 						
@@ -56,7 +56,7 @@ class Register extends Component {
 							<View style={styles.borderLoginWith}></View>
 						</View>
 						<View style={{flex: 3, alignItems: 'center'}}>
-							<Text>Daftar dengan</Text>
+							<Text>Đăng kí bằng:</Text>
 						</View>
 						<View style={styles.itemsLoginWith}>
 							<View style={styles.borderLoginWith}></View>
@@ -64,17 +64,17 @@ class Register extends Component {
 					</View>
 					<TouchableOpacity style={styles.loginSMS} onPress={() => alert('Soon!')}>
 						<IconAntDesign name="message1" style={{flex: 1, paddingLeft: 15}} size={25} color="#FFFFFF"/>
-						<Text style={styles.text}>Daftar melalui Email</Text>
+						<Text style={styles.text}>Đăng kí với Email</Text>
 						<Text style={{flex: 1}}/>
 					</TouchableOpacity>
 					<TouchableOpacity style={styles.loginLine} onPress={() => alert('Soon!')}>
-						<Icon name="line" style={{flex: 1, paddingLeft: 15}} size={25} color="#FFFFFF"/>
-						<Text style={styles.text}>Login dengan Line</Text>
+						<Icon name="google" style={{flex: 1, paddingLeft: 15}} size={25} color="#FFFFFF"/>
+						<Text style={styles.text}>Đăng kí với Google</Text>
 						<Text style={{flex: 1}}/>
 					</TouchableOpacity>
 					<TouchableOpacity style={styles.loginFacebook} onPress={() => alert('Soon!')}>
 						<Icon name="facebook" style={{flex: 1, paddingLeft: 15}} size={25} color="#FFFFFF"/>
-						<Text style={styles.text}>Lanjutkan dengan Facebook</Text>
+						<Text style={styles.text}>Đăng kí với Facebook</Text>
 						<Text style={{flex: 1}}/>
 					</TouchableOpacity>
 				</View>
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
 		height: 40,
 		elevation: 1,
 		borderRadius: 5,
-		backgroundColor: '#00c300'
+		backgroundColor: 'red'
 	},
 	loginFacebook: {
 		flexDirection: 'row',

@@ -16,7 +16,7 @@ class App extends Component {
 		this.state = {
 			username: '',
 			email: '',
-			nomorhp: this.props.navigation.state.params,
+			Phone: this.props.navigation.state.params,
 			password: '',
 			confirmPassword: '',
 			imageProfile: null,
@@ -71,7 +71,7 @@ class App extends Component {
 
 	userRegister = async (data) => {
 		if (data == []) {
-			alert('Kosong')
+			alert('Thiếu thông tin')
 		} else {
 
 			await this.setState({
@@ -90,7 +90,7 @@ class App extends Component {
         		this.setState({
         			loading: false
         		}, ()=>{
-        			alert('Gagal register')
+        			alert('Đăng kí thất bị')
         		})
         	})
 		}
@@ -105,7 +105,7 @@ class App extends Component {
 							<AntDesign name="arrowleft" size={24} color={'#EE4D2D'}/>
 						</TouchableOpacity>
 						<View style={styles.title}>
-							<Text style={styles.text}>Daftar</Text>
+							<Text style={styles.text}>Danh sách</Text>
 						</View>
 						<TouchableOpacity style={styles.shopcart} onPress={() => this.props.navigation.goBack()}>
 							<AntDesign name="closecircleo" size={24} color={'#EE4D2D'}/>
@@ -115,11 +115,11 @@ class App extends Component {
 				<View style={styles.container}>
 					<View style={{width:'80%', marginTop: 10}}>
 						{ (this.state.loading) ? <Loading /> : <View /> }
-						<TextInput style={styles.input} placeholder="Username" onChangeText={this.setUsername} />
+						<TextInput style={styles.input} placeholder="Tên tài khoản" onChangeText={this.setUsername} />
 						<TextInput style={styles.input} placeholder="Email" onChangeText={this.setEmail} />
 						<TextInput style={styles.input} value={this.props.navigation.state.params}/>
-						<TextInput style={styles.input} secureTextEntry={true} placeholder="Password" onChangeText={this.setPassword}/>
-						<TextInput style={styles.input} secureTextEntry={true} placeholder="Konfirmasi Password" onChangeText={this.setConfirmPassword}/>
+						<TextInput style={styles.input} secureTextEntry={true} placeholder="Mật khẩu" onChangeText={this.setPassword}/>
+						<TextInput style={styles.input} secureTextEntry={true} placeholder="Chấp nhân mật khẩu" onChangeText={this.setConfirmPassword}/>
 					</View>
 					<TouchableOpacity style={{width:'80%', marginTop: 20, flexDirection: 'row'}} onPress={this.handleUpdateImage} >
 						<View style={{flex: 1}}>
@@ -130,20 +130,20 @@ class App extends Component {
 							}
 						</View>
 						<View style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
-							<Text>Tekan untuk mengubah</Text>
+							<Text>Chọn ảnh đại điện</Text>
 						</View>
 					</TouchableOpacity>
 					<TouchableOpacity style={styles.button} onPress={() => this.userRegister({
 						username: this.state.username,
 						email: this.state.email,
-						phone: this.state.nomorhp,
+						phone: this.state.Phone,
 						password: this.state.password,
 						password_confirmation: this.state.confirmPassword,
 					})}>
-						<Text style={{color: '#FFFFFF'}}>{'Lanjut'.toUpperCase()}</Text>
+						<Text style={{color: '#FFFFFF'}}>{'Tiếp tục'.toUpperCase()}</Text>
 					</TouchableOpacity>
 					<View style={{width:'80%', marginTop: 50, flexDirection: 'row'}} >
-						<Text style={{textAlign: 'center'}}>Dengan mendaftar, Anda setuju dengan Syarat & Ketentuan & Kebijakan Shopee</Text>
+						<Text style={{textAlign: 'center'}}>Bằng cách đăng kí bạn đã đồng ý với điều khoản của shopee</Text>
 					</View>
 				</View>
 			</React.Fragment>
