@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { AsyncStorage, StyleSheet, Text, TextInput, View, TouchableOpacity, TouchableHighlight, Image, Button} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import IconAntDesign from 'react-native-vector-icons/AntDesign'
-import { register } from '../../public/redux/actions/auth'
+import { register } from '../../public/redux/auth/auth.actions'
 
 class Register extends Component {
 	constructor (props) {
@@ -38,7 +38,6 @@ class Register extends Component {
 	}
 
 	render(){
-		console.log(this.state.Phone)
 		return(
 			<React.Fragment>
 				<View style={styles.container}>

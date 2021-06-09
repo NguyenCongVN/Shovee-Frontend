@@ -10,7 +10,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Foundation from 'react-native-vector-icons/Foundation'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
-import { fetchProductsByUser } from '../public/redux/actions/product';
+import { fetchProductsByUser } from '../public/redux/product/product.actions';
 
 import { connect } from 'react-redux';
 

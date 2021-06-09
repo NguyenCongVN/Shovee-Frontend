@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, TouchableHighlight, FlatList,
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Fa from 'react-native-vector-icons/FontAwesome';
-import { getWishlist, deleteWishlist } from '../../public/redux/actions/wishlist';
+import { getWishlist, deleteWishlist } from '../../public/redux/wishlist/wishlist.actions';
 import { connect } from 'react-redux';
 
 class WishlistCard extends Component {

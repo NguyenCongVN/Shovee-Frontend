@@ -7,7 +7,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import ImagePicker from 'react-native-image-picker'
 import { connect } from 'react-redux'
-import { updateImage } from '../../public/redux/actions/user'
+import { updateImage } from '../../public/redux/user/user.actions'
 
 import Loading from '../Loading'
 

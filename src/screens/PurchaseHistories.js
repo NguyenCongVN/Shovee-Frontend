@@ -9,7 +9,7 @@ import Loading from './Loading';
 
 import { connect } from 'react-redux'
 
-import { fetchCheckout } from '../public/redux/actions/checkout';
+import { fetchCheckout } from '../public/redux/checkout/checkout.actions';
 
 class ListHistories extends Component {
 	render() {

@@ -1,25 +1,28 @@
+import productTypes from './product.types'
+
 const initialState = {
     isLoading: true,
     isError: false,
+    isSuccess : false,
     produk: []
 }
 
 export default product = (state = initialState, action) => {
     switch(action.type){
-        case 'GET_PRODUCTS_PENDING':
+        case productTypes.GET_PRODUCTS_PENDING:
             return {
                 ...state,
                 isLoading: true
             }
 
-        case 'GET_PRODUCTS_REJECTED':
+        case productTypes.GET_PRODUCTS_REJECTED:
             return {
                 ...state,
                 isLoading: false,
                 isError: true
             }
 
-        case 'GET_PRODUCTS_FULFILLED':
+        case productTypes.GET_PRODUCTS_FULFILLED:
             return {
                 ...state,
                 isLoading: false,
@@ -27,15 +30,16 @@ export default product = (state = initialState, action) => {
                 produk: action.payload.data,
                 data: action.payload.data.data
             }
-        case 'POST_PRODUCT_PENDING':
+        case productTypes.POST_PRODUCT_PENDING:
             return {
                 ...state,
                 isLoading: false,
                 isError: false,
-                data: [action.payload.data.data, ...state.data]
-            }    
+                isSuccess : false,
+                // data: [action.payload.data.data, ...state.data]
+            }
 
-        case 'POST_PRODUCT_REJECTED':
+        case productTypes.POST_PRODUCT_REJECTED:
             return {
                 ...state,
                 isLoading: false,
@@ -43,26 +47,27 @@ export default product = (state = initialState, action) => {
                 data: [action.payload.data.data, ...state.data]
             }
 
-        case 'POST_PRODUCT_FULFILLED':
+        case productTypes.POST_PRODUCT_FULFILLED:
             return {
                 ...state,
                 isLoading: false,
                 isError: false,
+                isSuccess : true,
                 data: [action.payload.data.data, ...state.data]
             }
 
-        case 'GET_PRODUCTS_MORE_PENDING': // in case when loading get data
+        case productTypes.GET_PRODUCTS_MORE_PENDING: // in case when loading get data
             return {
                 ...state,
                 isLoadingMore: true
             }
-        case 'GET_PRODUCTS_MORE_REJECTED': // in case error network/else
+        case productTypes.GET_PRODUCTS_MORE_REJECTED: // in case error network/else
             return {
                 ...state,
                 isLoadingMore: false,
                 isError: true
             }
-        case 'GET_PRODUCTS_MORE_FULFILLED': // in case successfuly get data
+        case productTypes.GET_PRODUCTS_MORE_FULFILLED: // in case successfuly get data
             return {
                 ...state,
                 isLoadingMore: false,
@@ -71,19 +76,19 @@ export default product = (state = initialState, action) => {
                 totalPage: action.payload.data.totalPage,
             }
 
-        case 'GET_PRODUCTS_BYUSER_PENDING':
+        case productTypes.GET_PRODUCTS_BYUSER_PENDING:
             return {
                 ...state,
                 isLoading: true
             }
 
-        case 'GET_PRODUCTS_BYUSER_REJECTED':
+        case productTypes.GET_PRODUCTS_BYUSER_REJECTED:
             return {
                 ...state,
                 isLoading: false,
                 isError: true
             }
-        case 'GET_PRODUCTS_BYUSER_FULFILLED':
+        case productTypes.GET_PRODUCTS_BYUSER_FULFILLED:
             return {
                 ...state,
                 isLoading: false,

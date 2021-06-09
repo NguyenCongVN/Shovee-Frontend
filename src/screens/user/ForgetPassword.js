@@ -5,7 +5,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { forgetPassword } from '../../public/redux/actions/auth'
+import { forgetPassword } from '../../public/redux/auth/auth.actions'
 import Loading from '../Loading'
 import NavigationService from '../NavigationService.js';
 

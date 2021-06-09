@@ -7,8 +7,8 @@ import OneSignal from 'react-native-onesignal'
 import { ScrollView } from 'react-native-gesture-handler';
 import { connect } from 'react-redux'
 
-import { fetchCart } from '../public/redux/actions/cart'
-import { postCheckout } from '../public/redux/actions/checkout'
+import { fetchCart } from '../public/redux/cart/cart.actions'
+import { postCheckout } from '../public/redux/checkout/checkout.actions'
 
 import Loading from './Loading'
 

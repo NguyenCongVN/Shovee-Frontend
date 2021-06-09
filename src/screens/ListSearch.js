@@ -98,7 +98,7 @@ export default class ListSearch extends Component {
                                     <TouchableOpacity>
                                         <AntDesign name='search1' size={20} style={{paddingLeft:15}} />
                                     </TouchableOpacity>
-                                    <TextInput placeholder='Cari Produk' style={{ borderRadius:5, paddingVertical:7, paddingLeft:10, flex:7}}>{this.props.navigation.state.params.title}</TextInput>
+                                    <TextInput placeholder='Tìm kiếm sản phẩm' style={{ borderRadius:5, paddingVertical:7, paddingLeft:10, flex:7}}>{this.props.navigation.state.params.title}</TextInput>
                                 </View>
                             </View>
                         </View>

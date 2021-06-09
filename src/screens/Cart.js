@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { View, Text, TouchableOpacity, Image, CheckBox, FlatList, ScrollView } from 'react-native';
 import Fa from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import cart from '../public/redux/reducer/cart';
 import Loading from './Loading';
 
 class CartList extends Component {
@@ -157,12 +156,12 @@ class Cart extends Component {
                                 <Fa name='truck' color={'#01bfa5'} size={24} />
                             </View>
                             <View style={{flex:8}}>
-                                <Text style={{fontSize:15}}>Pilih voucher Gratis Ongkir untuk menikmati Gratis Ongkir</Text>
+                                <Text style={{fontSize:15}}>Chọn voucher để giao hàng miễn phí</Text>
                             </View>
                         </View>
                     </View>
 
-                    {this.props.cart.isLoading ? <Loading/> : this.props.cart.data.length === 0 ? <Text>Keranjang Kosong, silahkan membali barang.</Text> : <FlatList
+                    {this.props.cart.isLoading ? <Loading/> : this.props.cart.data.length === 0 ? <Text>Chưa có hàng</Text> : <FlatList
                     data={this.props.cart.data}
                     keyExtractor={(item, index) => item._id}
                     renderItem={({item, index}) => {

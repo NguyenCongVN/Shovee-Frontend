@@ -7,8 +7,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import ImagePicker from 'react-native-image-picker'
 import { connect } from 'react-redux';
-import { getCategories } from '../public/redux/actions/categories';
-import { addProduct } from '../public/redux/actions/product';
+import { getCategoriesPending } from '../public/redux/categories/categories.actions';
+import { addProductPending } from '../public/redux/product/product.actions';
 
 class App extends Component {
 	constructor(props) {
@@ -25,7 +25,6 @@ class App extends Component {
 			brand: '',
 			token: '',
 			image: {},
-			loading: false,
 		};
 		
 		this._bootstrapAsync()
@@ -42,7 +41,19 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		this.props.dispatch(getCategories());
+		this.props.getCategoriesPending();
+	}
+
+	componentDidUpdate(){
+		if(this.props.products.isSuccess && !this.props.products.isLoading)
+		{
+			alert('Thành Công')
+			this.props.navigation.goBack();
+		}
+		if(this.props.products.isError)
+		{
+			alert('Lỗi')
+		}
 	}
 
     handleUpdateImage = async () => {
@@ -77,9 +88,8 @@ class App extends Component {
 			loading: true
 		})
 
-
-		this.props.dispatch(addProduct(
-			this.state.token, 
+		this.props.addProductPending(
+			[this.state.token, 
 			this.state.category, 
 			this.state.price, 
 			this.state.image, 
@@ -87,21 +97,7 @@ class App extends Component {
 			this.state.description, 
 			this.state.name, 
 			this.state.stok, 
-			this.state.brand))
-		.then(()=>{
-			this.setState({
-				loading: false
-			}, ()=>{
-				this.props.navigation.goBack()
-			})
-		})
-		.catch((err)=>{
-			this.setState({
-				loading: false
-			}, () => {
-					alert('Lỗi không thêm được loại')
-				})
-			})
+			this.state.brand])
 		}
 	}
 
@@ -123,7 +119,7 @@ class App extends Component {
 				</View>
 				<View style={styles.container}>
 					{
-						(this.state.loading) ? <View style={{top: 12, position: 'absolute', left: 0, right: 0, alignItems: 'center'  }}><ActivityIndicator size='large' /></View> : <View/> 
+						(this.props.products.isLoading) ? <View style={{top: 12, position: 'absolute', left: 0, right: 0, alignItems: 'center'  }}><ActivityIndicator size='large' /></View> : <View/> 
 					}
 					<ScrollView>
 						<View style={styles.imageProduct}>
@@ -229,8 +225,15 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
     return {
 		categories: state.categories,
-		product: state.product
+		products: state.products,
     }
 }
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = dispatch => {
+	return {
+		getCategoriesPending : () => dispatch(getCategoriesPending()),
+		addProductPending : (data) => dispatch(addProductPending(data))
+	}
+}
+
+export default connect(mapStateToProps , mapDispatchToProps)(App)

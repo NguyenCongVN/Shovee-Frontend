@@ -1,27 +1,30 @@
+import cartTypes from './cart.types'
+
 const initialState = {
     isLoading: true,
     isError: false,
     data: [],
+    page: 'Me'
 }
 
 export default product = (state = initialState, action) => {
     switch(action.type){
-        case 'GET_CHECKOUT_PENDING':
-        case 'POST_CHECKOUT_PENDING':    
+        case cartTypes.GET_CART_PENDING:
+        case cartTypes.POST_CART_PENDING:    
             return {
                 ...state,
                 isLoading: true
             }
 
-        case 'GET_CHECKOUT_REJECTED':
-        case 'POST_CHECKOUT_REJECTED':
+        case cartTypes.GET_CART_REJECTED:
+        case cartTypes.POST_CART_REJECTED:
             return {
                 ...state,
                 isLoading: false,
                 isError: true
             }
         
-        case 'GET_CHECKOUT_FULFILLED':
+        case cartTypes.GET_CART_FULFILLED:
             return {
                 ...state,
                 isLoading: false,
@@ -29,13 +32,18 @@ export default product = (state = initialState, action) => {
                 data: action.payload.data.data
             }
 
-        case 'POST_CHECKOUT_FULFILLED':
+        case cartTypes.POST_CART_FULFILLED:
             return {
                 ...state,
                 isLoading: false,
                 isError: false,
                 data: [...state.data, action.payload.data.data]
             }
+		case cartTypes.PAGE:
+			return {
+				...state,
+				page: action.payload
+			}
         default:
             return state   
     }

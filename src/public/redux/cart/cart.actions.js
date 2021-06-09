@@ -1,15 +1,24 @@
 import axios from 'axios'
-
+import cartType from './cart.types'
 const url = 'http://10.0.2.2:3000/cart'
 
-export const fetchCart = (token) => {
+
+export const getCartPending = () =>{
     return {
-        type: 'GET_CART',
-        payload: axios.get(`${url}`, {
-            headers: {
-                'x-auth-token':token
-            }
-        })
+        type : cartType.GET_CART_PENDING,
+    }
+} 
+
+export const getCartSuccess = (cartResponse) => {
+    return {
+        type : cartType.GET_CART_FULFILLED,
+        payload : cartResponse
+    }
+}
+
+export const getCartRejected = () => {
+    return {
+        type : cartType.GET_CART_REJECTED
     }
 }
 

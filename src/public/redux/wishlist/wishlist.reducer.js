@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native'
-
+import wishlistTypes from './wishlist.types'
 const initialState = {
     data: {
         data: []
@@ -11,18 +11,18 @@ const initialState = {
 
 export default wishlist = (state = initialState, action) => {
     switch(action.type) {
-        case 'GET_WISHLIST_PENDING':
+        case wishlistTypes.GET_WISHLIST_PENDING:
             return {
                 ...state,
                 isLoading: true
             }
-        case 'GET_WISHLIST_REJECTED':
+        case wishlistTypes.GET_WISHLIST_REJECTED:
             return {
                 ...state,
                 isLoading: false,
                 isError: true
             }
-        case 'GET_WISHLIST_FULFILLED':
+        case wishlistTypes.GET_WISHLIST_FULFILLED:
             return {
                 ...state,
                 isLoading: false,
@@ -30,20 +30,20 @@ export default wishlist = (state = initialState, action) => {
                 isLiked: false,
                 data: action.payload.data
             }
-        case 'POST_WISHLIST_PENDING':
+        case wishlistTypes.POST_WISHLIST_PENDING:
             return {
                 ...state,
                 isLoading: true,
                 isLiked: false,
             }
-        case 'POST_WISHLIST_REJECTED':
+        case wishlistTypes.POST_WISHLIST_REJECTED:
             return {
                 ...state,
                 isLoading: false,
                 isError: true,
                 isLiked: false,
             }
-        case 'POST_WISHLIST_FULFILLED':
+        case wishlistTypes.POST_WISHLIST_FULFILLED:
             return {
                 ...state,
                 isLoading: false,
@@ -51,20 +51,20 @@ export default wishlist = (state = initialState, action) => {
                 isLiked: true,
                 data: [action.payload.data.data].concat(state.data.data)
             }
-        case 'DELETE_WISHLIST_PENDING':
+        case wishlistTypes.DELETE_WISHLIST_PENDING:
                 return {
                     ...state,
                     isLoading: true,
                     isLiked: false,
                 }
-        case 'DELETE_WISHLIST_REJECTED':
+        case wishlistTypes.DELETE_WISHLIST_REJECTED:
             return {
                 ...state,
                 isLoading: false,
                 isError: true,
                 isLiked: false,
             }
-        case 'DELETE_WISHLIST_FULFILLED':
+        case wishlistTypes.DELETE_WISHLIST_FULFILLED:
             return {
                 ...state,
                 isLoading: false,
