@@ -71,7 +71,7 @@ class CartList extends Component {
                                             </TouchableOpacity>
                                         </View>
 
-                                        <Text style={{color:'#ee4d2d'}}>Rp {this.props.item.product.price}</Text>
+                                        <Text style={{color:'#ee4d2d'}}>{this.props.item.product.price} VNĐ</Text>
                                     </View>
                                     
                                 </View>
@@ -138,7 +138,7 @@ class Cart extends Component {
                             </TouchableOpacity>
                         </View>
                         <View style={{flex:7}}>
-                            <Text style={{fontSize:20, color:'#000'}}>Keranjang Saya</Text>
+                            <Text style={{fontSize:20, color:'#000'}}>Giỏ hàng</Text>
                         </View>
                         <View style={{flex:1, alignItems:'flex-end'}}>
                             <TouchableOpacity>
@@ -181,19 +181,19 @@ class Cart extends Component {
                                     value={this.state.checked}
                                     onValueChange={() => this.setState({ checked: !this.state.checked })}
                                 />
-                                <Text style={{color:'#000'}}>Pilih Semua</Text>
+                                <Text style={{color:'#000'}}>Chọn tất cả</Text>
                             </View>
                         </View>
 
                         <View style={{flex:2, alignItems:'flex-end'}}>
-                            <Text style={{color:'#000'}}>SubTotal : <Text style={{color:'#ee4d2d'}}>Rp.{this.props.cart.data.length === 0 ? 0 : this.countPrice()}</Text></Text>
-                            <Text style={{fontSize:12, color:'#f6a700'}}>Dapatkan 0 Koin</Text>
+                            <Text style={{color:'#000'}}>Tổng cộng : <Text style={{color:'#ee4d2d'}}>{this.props.cart.data.length === 0 ? 0 : this.countPrice()} VNĐ </Text></Text>
+                            <Text style={{fontSize:12, color:'#f6a700'}}>Nhận 0 xu</Text>
                         </View>
 
                         {this.props.cart.data.length === 0 ? <TouchableOpacity  style={{flex:1, alignItems:'center', backgroundColor:'#efefef', paddingVertical:8, borderRadius:5, marginLeft:10}} disabled onPress={() => {this.props.navigation.navigate('Checkout', this.countPrice())}}>
-                            <Text style={{color:'#000', fontSize:16}}>Checkout</Text>
+                            <Text style={{color:'#000', fontSize:16}}>Thanh toán</Text>
                         </TouchableOpacity> : <TouchableOpacity  style={{flex:1, alignItems:'center', backgroundColor:'#ee4d2d', paddingVertical:8, borderRadius:5, marginLeft:10}} onPress={() => {this.props.navigation.navigate('Checkout', this.countPrice())}}>
-                            <Text style={{color:'#fff', fontSize:16}}>Checkout</Text>
+                            <Text style={{color:'#fff', fontSize:16}}>Thanh toán</Text>
                         </TouchableOpacity>}
 
                     </View>

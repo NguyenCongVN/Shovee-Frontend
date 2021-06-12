@@ -36,6 +36,11 @@ import {
 } from "../public/redux/wishlist/wishlist.actions";
 
 import {
+  getCartPending,
+  postCartPending,
+} from "../public/redux/cart/cart.actions";
+
+import {
   changePage,
   fetchCart,
   postCart,
@@ -75,9 +80,6 @@ class CardsProduct extends Component {
 class DetailProduct extends Component {
   constructor(props) {
     super(props);
-
-    this._bootstrapAsync;
-
     this.state = {
       scrollY: new Animated.Value(
         // iOS has negative initial scroll value because content inset...
@@ -90,17 +92,18 @@ class DetailProduct extends Component {
       count: "0",
       token: "",
     };
-    console.log(this.state.item);
+    this._bootstrapAsync();
   }
 
   _doNavigateAndFetch = async () => {
     const userToken = await AsyncStorage.getItem("Token");
-    await this.props.dispatch(changePage(userToken));
+    await this.props.changePage(userToken);
     await this.props.navigation.navigate("Cart");
-    await this.props.dispatch(
-      postCart(this.props.navigation.state.params._id, userToken)
+    await this.props.postCartPending(
+      this.state.item._id,
+      userToken
     );
-    this.props.dispatch(fetchCart(userToken));
+    this.props.getCartPending(userToken);
   };
 
   _bootstrapAsync = async () => {
@@ -126,8 +129,20 @@ class DetailProduct extends Component {
     }
   };
 
-  componentDidMount() {
-    // this.props.fetchData();
+  async componentDidMount() {
+    try {
+      await this._bootstrapAsync();
+    } catch (err) {
+      console.log(err);
+    }
+
+    const checkWishList = this.props.wishlist.data.find(
+      (data) => data.product._id == this.state.item._id
+    );
+
+    if (checkWishList) {
+      this.setState({ ...this.state, liked: true });
+    }
     this.willFocusSubscription = this.props.navigation.addListener(
       "willFocus",
       () => {
@@ -159,7 +174,7 @@ class DetailProduct extends Component {
           }}
         >
           <Text onPress={onPress} style={{ color: "#ee4d2d" }}>
-            Lihat Lainnya{" "}
+            Xem Thêm{" "}
           </Text>
           <Entypo name="chevron-thin-down" color={"#ee4d2d"} />
         </View>
@@ -186,7 +201,7 @@ class DetailProduct extends Component {
           }}
         >
           <Text onPress={onPress} style={{ color: "#ee4d2d" }}>
-            Sembunyikan{" "}
+            Rút gọn{" "}
           </Text>
           <Entypo name="chevron-thin-up" color={"#ee4d2d"} />
         </View>
@@ -196,7 +211,6 @@ class DetailProduct extends Component {
 
   renderLike = () => {
     if (this.state.liked == false) {
-      // fungsi dispatch bisa ditaruh disini
       return this.setState(
         {
           liked: true,
@@ -211,7 +225,10 @@ class DetailProduct extends Component {
           liked: false,
         },
         () => {
-          this.props.deleteWishListPending(this.state.token, this.props.wishlist.data[0]._id);
+          this.props.deleteWishListPending(
+            this.state.token,
+            this.props.wishlist.data[0]._id
+          );
         }
       );
     }
@@ -770,13 +787,6 @@ class DetailProduct extends Component {
                 alignItems: "center",
               }}
               onPress={async () => {
-                try {
-                  await this.props.dispatch(changePage("Cart"));
-                  console.log("akaka");
-                } catch {
-                  console.log("wkwkw");
-                }
-
                 (await this.state.isLogin)
                   ? this._doNavigateAndFetch()
                   : this.props.navigation.navigate("Login", this.props.item);
@@ -943,6 +953,9 @@ const mapDispatchToProps = (dispatch) => {
     addWishListPending: (token, id) => dispatch(addWishListPending(token, id)),
     deleteWishListPending: (token, id) =>
       dispatch(deleteWishListPending(token, id)),
+    getCartPending: () => dispatch(getCartPending()),
+    postCartPending: (id, token) => dispatch(postCartPending(id, token)),
+    changePage : (page) => dispatch(changePage(page))
   };
 };
 

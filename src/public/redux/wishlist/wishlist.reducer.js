@@ -28,7 +28,7 @@ export default wishlist = (state = initialState, action) => {
                 isLoading: false,
                 isError: false,
                 isLiked: false,
-                data: action.payload.data
+                data: action.payload.data.data
             }
         case wishlistTypes.POST_WISHLIST_PENDING:
             return {
@@ -49,7 +49,7 @@ export default wishlist = (state = initialState, action) => {
                 isLoading: false,
                 isError: false,
                 isLiked: true,
-                data: [action.payload.data.data].concat(state.data.data)
+                data: [action.payload.data.data].concat(state.data)
             }
         case wishlistTypes.DELETE_WISHLIST_PENDING:
                 return {
@@ -70,9 +70,7 @@ export default wishlist = (state = initialState, action) => {
                 isLoading: false,
                 isError: false,
                 isLiked: true,
-                data: {
-                    data: state.data.data.filter(wishlist => action.payload.data._id != wishlist._id)
-                }
+                data: state.data.filter(wishlist => action.payload.data._id != wishlist._id)
             }
         default: 
             return state

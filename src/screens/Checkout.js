@@ -42,7 +42,7 @@ class CheckoutList extends Component {
                                     <View style={{flex:1, justifyContent:'space-between', marginLeft:8}}>
                                         <Text numberOfLines={1}>{this.props.item.product.description}</Text>
 
-                                        <Text>Variasi: -</Text>
+                                        <Text>Loại: -</Text>
                                         
                                         <Text>{this.props.item.price}</Text>
                                     </View>
@@ -55,7 +55,7 @@ class CheckoutList extends Component {
                     <View style={{backgroundColor:'#fff'}}>
                         <View style={{flexDirection:'row', padding:14, alignItems:'center'}}>
                             <View style={{flex:1}}>
-                                <Text style={{color:'#000'}}>Total Pesanan (1 Produk ):</Text>
+                                <Text style={{color:'#000'}}>Đặt (1 sản phẩm ):</Text>
                             </View>
 
                             <View style={{flex:1, alignItems:'flex-end'}}>
@@ -223,7 +223,7 @@ class Checkout extends Component {
                             </View>
 
                             <View style={{flex:11}}>
-                                <Text style={{fontSize:15, color:'#000'}}>Alamat Pengiriman {'\n'}</Text>
+                                <Text style={{fontSize:15, color:'#000'}}>Địa chỉ giao hàng {'\n'}</Text>
                                 
                                 <Text style={{fontSize:15, color:'#000'}}>{this.props.user.data.address.full_address}</Text>
                                 <Text style={{fontSize:15, color:'#000'}}>{this.props.user.data.address.city}</Text>
@@ -250,27 +250,27 @@ class Checkout extends Component {
 
                         <View style={{flexDirection:'row', paddingHorizontal:12, paddingVertical:4, alignItems:'center'}}>
                             <View style={{flex:1}}>
-                                <Text style={{color:'#000'}}>Subtotal untuk Produk</Text>
+                                <Text style={{color:'#000'}}>Số tiền các sản phẩm</Text>
                             </View>
 
                             <View style={{flex:1, alignItems:'flex-end'}}>
-                                <Text style={{color:'#000'}}>Rp50.000</Text>
+                                <Text style={{color:'#000'}}>50.000 VNĐ</Text>
                             </View>
                         </View>
 
                         <View style={{flexDirection:'row', paddingHorizontal:12, paddingVertical:4, alignItems:'center'}}>
                             <View style={{flex:1}}>
-                                <Text style={{color:'#000'}}>Subtotal Pengiriman</Text>
+                                <Text style={{color:'#000'}}>Tiền giao hàng</Text>
                             </View>
 
                             <View style={{flex:1, alignItems:'flex-end'}}>
-                                <Text style={{color:'#000'}}>Gratis</Text>
+                                <Text style={{color:'#000'}}>Miễn phí</Text>
                             </View>
                         </View>
 
                         <View style={{flexDirection:'row', paddingHorizontal:12, paddingVertical:4, alignItems:'center', paddingBottom:14}}>
                             <View style={{flex:1}}>
-                                <Text style={{color:'#000', fontSize:18, fontWeight:'400'}}>Total Pembayaran</Text>
+                                <Text style={{color:'#000', fontSize:18, fontWeight:'400'}}>Tổng tiền thanh toán</Text>
                             </View>
 
                             <View style={{flex:1, alignItems:'flex-end'}}>
@@ -285,7 +285,7 @@ class Checkout extends Component {
                         onPress={() => {
                             this.handleCheckout(this.props.cart.data)
                             }}>
-                            <Text style={{color:'#fff', fontSize:16}}>BUAT PESANAN</Text>
+                            <Text style={{color:'#fff', fontSize:16}}>ĐẶT HÀNG</Text>
                         </TouchableOpacity>
                     </View>
                     {this.state.isLoading ? <Loading /> : <View />}

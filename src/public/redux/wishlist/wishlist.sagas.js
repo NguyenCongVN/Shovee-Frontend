@@ -49,7 +49,7 @@ export function sendRequestAddWishlist({ idProduct, token }) {
 }
 
 export function sendRequestDeleteWishlist({ idWishlist, token }) {
-  returnaxios
+  return axios
     .delete(url + `/${idWishlist}`, {
       headers: {
         "x-auth-token": token,
@@ -99,7 +99,7 @@ export function* onAddWishlist() {
 }
 
 export function* onDeleteWishlist() {
-    yield takeLatest(wishlistTypes.DELETE_WISHLIST_FULFILLED, DeleteWishlist);
+    yield takeLatest(wishlistTypes.DELETE_WISHLIST_PENDING, DeleteWishlist);
   }
 
 export function* wishlistSagas() {
