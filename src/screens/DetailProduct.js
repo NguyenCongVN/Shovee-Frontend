@@ -67,10 +67,10 @@ class CardsProduct extends Component {
             {this.props.item.title}
           </Text>
           <View style={styles.productPrice}>
-            <Text style={{ color: "#ee4d2d", fontSize: 12 }}>VNĐ</Text>
             <Text style={{ color: "#ee4d2d", fontSize: 16 }}>
               {this.props.item.harga}
             </Text>
+            <Text style={{ color: "#ee4d2d", fontSize: 12 }}>VNĐ</Text>
           </View>
         </TouchableOpacity>
       </View>

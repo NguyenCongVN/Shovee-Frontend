@@ -10,7 +10,7 @@ const initialState = {
 export default product = (state = initialState, action) => {
     switch(action.type){
         case cartTypes.GET_CART_PENDING:
-        case cartTypes.POST_CART_PENDING:    
+        case cartTypes.POST_CART_PENDING:
             return {
                 ...state,
                 isLoading: true
@@ -18,6 +18,7 @@ export default product = (state = initialState, action) => {
 
         case cartTypes.GET_CART_REJECTED:
         case cartTypes.POST_CART_REJECTED:
+        case cartTypes.DELETE_CART_REJECTED:
             return {
                 ...state,
                 isLoading: false,
@@ -33,11 +34,11 @@ export default product = (state = initialState, action) => {
             }
 
         case cartTypes.POST_CART_FULFILLED:
+        case cartTypes.DELETE_CART_FULFILLED:
             return {
                 ...state,
                 isLoading: false,
                 isError: false,
-                data: [...state.data, action.payload.data.data]
             }
 		case cartTypes.PAGE:
 			return {

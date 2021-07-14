@@ -44,6 +44,24 @@ export const registerRejected = () => {
     }
 }
 
+export const logoutPending = () => {
+    return {
+        type: authTypes.LOGOUT_PEDING
+    }
+}
+
+export const logoutSuccess = () => {
+    return {
+        type : authTypes.LOGOUT_FULFILLED
+    }
+}
+
+export const logoutRejected = () => {
+    return {
+        type : authTypes.LOGOUT_REJECTED,
+    }
+}
+
 export const confirmBox = () => {
     return {
         type : authTypes.CONFIRM_BOX,

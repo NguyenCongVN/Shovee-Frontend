@@ -66,13 +66,23 @@ export const addProductRejected = (errResponse) => {
 }
 
 
-export const fetchProductsByUser = (token) => {
+export const fetchProductByUserPending = (token) => {
   return {
-    type: "GET_PRODUCTS_BYUSER",
-    payload: axios.get(`${url}/user`, {
-      headers: {
-        "x-auth-token": token,
-      },
-    }),
-  };
-};
+    type : productTypes.GET_PRODUCTS_BYUSER_PENDING,
+    payload : token
+  }
+}
+
+export const fetchProductByUserSuccess = (productResponse) => {
+  return {
+    type : productTypes.GET_PRODUCTS_BYUSER_FULFILLED,
+    payload : productResponse
+  }
+}
+
+export const fetchProductByUserRejected = (errResponse) => {
+  return {
+    type : productTypes.GET_PRODUCTS_BYUSER_REJECTED,
+    payload : errResponse
+  }
+}

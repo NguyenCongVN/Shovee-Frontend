@@ -54,13 +54,13 @@ export default auth = (state = initialState, action) => {
         ...state,
         isLoading: true,
         isError: false,
-		isSuccess : false
+        isSuccess: false,
       };
     case authTypes.REGISTER_FULFILLED:
       return {
         ...state,
         isLoading: false,
-		isSuccess : true
+        isSuccess: true,
       };
     case authTypes.REGISTER_REJECTED:
       return {
@@ -72,7 +72,29 @@ export default auth = (state = initialState, action) => {
       return {
         ...state,
         isError: false,
-		isSuccess : false,
+        isSuccess: false,
+      };
+    case authTypes.LOGOUT_PEDING:
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        isSuccess: false,
+      };
+    case authTypes.LOGOUT_FULFILLED:
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        isSuccess: true,
+        isLogin : false
+      };
+    case authTypes.LOGOUT_REJECTED:
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        isSuccess: false,
       };
     default:
       return state;

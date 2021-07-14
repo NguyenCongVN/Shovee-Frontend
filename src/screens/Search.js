@@ -31,14 +31,6 @@ export default class Search extends Component {
                     id: '1',
                     title: 'Laptop Core i5'
                 },
-                {
-                    id: '2',
-                    title: 'Bola Dribble'
-                },
-                {
-                    id: '3',
-                    title: 'Pacar'
-                }
             ]
         }
     }
@@ -86,7 +78,7 @@ export default class Search extends Component {
                     <ScrollView style={{backgroundColor:'#efefef', elevation:1}}>
                         <View style={{flexDirection:'row', paddingHorizontal:10, paddingVertical:14, marginTop:10, backgroundColor:'#fff', borderBottomWidth:1, borderBottomColor:'rgba(0,0,0,0.05)'}}>
                             <View style={{flex:1}}>
-                                <Text>Pencarian Populer</Text>
+                                <Text>Tìm kiếm phổ biến</Text>
                             </View>
                         </View>
 
@@ -94,7 +86,7 @@ export default class Search extends Component {
                             <View style={{flex:1}}>
                                 <View style={{flexDirection:'row', alignItems:'center', paddingHorizontal:10}}>
                                     <View style={{flex:1}}>
-                                        <Text>Jetpack GTA</Text>
+                                        <Text>Bộ cánh bay</Text>
                                     </View>
                                     <View style={{flex:1, alignItems:'flex-end'}}>
                                         <Image source={{ uri: 'http://icons.iconarchive.com/icons/100-seedless-penguins/video-game/256/GTA-San-Andreas-Jetpack-icon.png' }} style={{width:50, height:50}} />
@@ -104,7 +96,7 @@ export default class Search extends Component {
                             <View style={{flex:1, borderLeftWidth:1, borderLeftColor:'rgba(0,0,0,0.2)'}}>
                                 <View style={{flexDirection:'row', alignItems:'center', paddingHorizontal:10}}>
                                     <View style={{flex:1}}>
-                                        <Text>Jetpack GTA</Text>
+                                        <Text>Bộ cánh bay</Text>
                                     </View>
                                     <View style={{flex:1, alignItems:'flex-end'}}>
                                         <Image source={{ uri: 'http://icons.iconarchive.com/icons/100-seedless-penguins/video-game/256/GTA-San-Andreas-Jetpack-icon.png' }} style={{width:50, height:50}} />
@@ -117,7 +109,7 @@ export default class Search extends Component {
                             <View style={{flex:1}}>
                                 <View style={{flexDirection:'row', alignItems:'center', paddingHorizontal:10}}>
                                     <View style={{flex:1}}>
-                                        <Text>Jetpack GTA</Text>
+                                        <Text>Bộ cánh bay</Text>
                                     </View>
                                     <View style={{flex:1, alignItems:'flex-end'}}>
                                         <Image source={{ uri: 'http://icons.iconarchive.com/icons/100-seedless-penguins/video-game/256/GTA-San-Andreas-Jetpack-icon.png' }} style={{width:50, height:50}} />
@@ -127,7 +119,7 @@ export default class Search extends Component {
                             <View style={{flex:1, borderLeftWidth:1, borderLeftColor:'rgba(0,0,0,0.2)'}}>
                                 <View style={{flexDirection:'row', alignItems:'center', paddingHorizontal:10}}>
                                     <View style={{flex:1}}>
-                                        <Text>Jetpack GTA</Text>
+                                        <Text>Bộ cánh bay</Text>
                                     </View>
                                     <View style={{flex:1, alignItems:'flex-end'}}>
                                         <Image source={{ uri: 'http://icons.iconarchive.com/icons/100-seedless-penguins/video-game/256/GTA-San-Andreas-Jetpack-icon.png' }} style={{width:50, height:50}} />
@@ -140,7 +132,7 @@ export default class Search extends Component {
                             <View style={{flex:1}}>
                                 <View style={{flexDirection:'row', alignItems:'center', paddingHorizontal:10}}>
                                     <View style={{flex:1}}>
-                                        <Text>Jetpack GTA</Text>
+                                        <Text>Bộ cánh bay</Text>
                                     </View>
                                     <View style={{flex:1, alignItems:'flex-end'}}>
                                         <Image source={{ uri: 'http://icons.iconarchive.com/icons/100-seedless-penguins/video-game/256/GTA-San-Andreas-Jetpack-icon.png' }} style={{width:50, height:50}} />
@@ -150,7 +142,7 @@ export default class Search extends Component {
                             <View style={{flex:1, borderLeftWidth:1, borderLeftColor:'rgba(0,0,0,0.2)'}}>
                                 <View style={{flexDirection:'row', alignItems:'center', paddingHorizontal:10}}>
                                     <View style={{flex:1}}>
-                                        <Text>Jetpack GTA</Text>
+                                        <Text>Bộ cánh bay</Text>
                                     </View>
                                     <View style={{flex:1, alignItems:'flex-end'}}>
                                         <Image source={{ uri: 'http://icons.iconarchive.com/icons/100-seedless-penguins/video-game/256/GTA-San-Andreas-Jetpack-icon.png' }} style={{width:50, height:50}} />

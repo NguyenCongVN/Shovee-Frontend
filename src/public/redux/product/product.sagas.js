@@ -8,6 +8,8 @@ import {
   getMoreProductRejected,
   addProductSuccess,
   addProductRejected,
+  fetchProductByUserRejected,
+  fetchProductByUserSuccess
 } from "./product.actions";
 const url = "http://10.0.2.2:3000/products";
 
@@ -65,6 +67,19 @@ export function sendRequestPostProduct(
     });
 }
 
+export function sendRequestGetProductByUser( id , token) {
+  return axios
+    .get(`${url}/user/${id}`, {
+      headers: {
+        "x-auth-token": token,
+      },
+    })
+    .then((response) => response)
+    .catch((error) => {
+      throw error;
+    });
+}
+
 export function* GetProduct() {
   try {
     response = yield call(sendRequestGetProduct);
@@ -83,12 +98,21 @@ export function* GetMoreProduct({ payload: page }) {
   }
 }
 
-export function* PostProduct({ 'payload': data }) {
+export function* PostProduct({ payload: data }) {
   try {
     response = yield call(sendRequestPostProduct, ...data);
     yield put(addProductSuccess(response));
   } catch (error) {
     yield put(addProductRejected(error));
+  }
+}
+
+export function* FetchProductByUser({ payload: token }) {
+  try {
+    response = yield call(sendRequestGetProductByUser, token);
+    yield put(fetchProductByUserSuccess(response));
+  } catch (error) {
+    yield put(fetchProductByUserRejected(error));
   }
 }
 
@@ -104,6 +128,10 @@ export function* onPostProduct() {
   yield takeLatest(productType.POST_PRODUCT_PENDING, PostProduct);
 }
 
+export function* onFetchProductByUser() {
+  yield takeLatest(productType.GET_PRODUCTS_BYUSER_PENDING, FetchProductByUser);
+}
+
 export function* productSagas() {
-  yield all([call(onGetProduct), call(onGetMoreProduct), call(onPostProduct)]);
+  yield all([call(onGetProduct), call(onGetMoreProduct), call(onPostProduct) , call(onFetchProductByUser)]);
 }

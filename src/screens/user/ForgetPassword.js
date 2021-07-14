@@ -23,7 +23,7 @@ class App extends Component {
 
 	sendPassword = async (data) => {
 		if (this.state.email == '') {
-			alert('Email kosong!')
+			alert('Email Lỗi!')
 		} else {
 			await this.setState({
 				loading: true
@@ -34,14 +34,14 @@ class App extends Component {
 				this.setState({
 					loading: false
 				}, () => {
-					alert('Silahkan cek email anda!')
+					alert('Vui lòng kiểm tra email !')
 				})
 			})
 			.catch((err)=>{
         		this.setState({
 					loading: false
 				}, () => {
-        			alert('Email tidak ada!')
+        			alert('Email không tồn tại!')
 				})
         	})
 		}
@@ -56,14 +56,14 @@ class App extends Component {
 							<AntDesign name="arrowleft" size={24} color={'#EE4D2D'}/>
 						</TouchableOpacity>
 						<View style={styles.title}>
-							<Text style={styles.text}>Lupa Password</Text>
+							<Text style={styles.text}>Quên mật khẩu</Text>
 						</View>
 					</View>
 				</View>
 				<View style={styles.container}>
 				{ (this.state.loading) ? <Loading /> : <View /> }
 					<View style={{width:'80%', marginTop: 10}}>
-						<Text style={{color: '#000'}}>Masukkan email atau no. telepon Anda yang sudah terdaftar</Text>
+						<Text style={{color: '#000'}}>Nhập email hoặc điện thoại đăng kí</Text>
 					</View>
 					<View style={{width:'80%', marginTop: 5}}>
 						<TextInput style={styles.input} placeholder="Email" onChangeText={this.setEmail}/>

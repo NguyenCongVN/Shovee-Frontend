@@ -27,7 +27,7 @@ class App extends Component {
 							<Text style={{color: '#000000', fontSize: 17}}>Đổi tên</Text>
 						</View>
 						<TouchableOpacity style={styles.check} onPress={() => this.props.navigation.goBack()}>
-							<Text>{'Simpan'.toUpperCase()}</Text>
+							<Text>{'Chấp nhận'.toUpperCase()}</Text>
 						</TouchableOpacity>
 					</View>
 				</View>
@@ -36,7 +36,7 @@ class App extends Component {
 						<TextInput/>
 					</TouchableOpacity>
 				</View>
-				<Text style={styles.back}>Maks. 30 karakter</Text>
+				<Text style={styles.back}>Tối đa 30 kí tự</Text>
 			</React.Fragment>
 		)
 	}

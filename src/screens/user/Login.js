@@ -43,7 +43,7 @@ class Login extends Component {
       alert("Lỗi thiếu thông tin");
     } else {
       this.props.loginStart(data);
-	  alert('Thành Công');
+      alert("Thành Công");
     }
   };
 
@@ -68,13 +68,18 @@ class Login extends Component {
             <TextInput
               style={styles.input}
               placeholder="Email/SĐT/Tên tài khoản"
-              onChangeText={this.setUsername}
+              onChangeText={(value) => {
+                console.log('Entering Value')
+                this.setUsername(value);
+              }}
             />
             <TextInput
               style={styles.input}
               secureTextEntry={true}
               placeholder="Mật khẩu"
-              onChangeText={this.setPassword}
+              onChangeText={(value) => {
+                this.setPassword(value);
+              }}
             />
             <TouchableOpacity
               style={{ position: "absolute", right: 5, top: 65 }}

@@ -5,6 +5,8 @@ import {
   loginRejected,
   registerSuccess,
   registerRejected,
+  logoutSuccess,
+  logoutRejected
 } from "./auth.actions";
 import axios from "axios";
 import { AsyncStorage } from "react-native";
@@ -66,6 +68,25 @@ export function* RegisterStart(data) {
   }
 }
 
+export function sendRequestLogout() {
+  AsyncStorage.removeItem('Token', (error) => {
+    if (error) {
+      throw error
+    }
+  })
+}
+
+
+export function* LogoutStart() {
+  try {
+    yield call(sendRequestLogout);
+    yield put(logoutSuccess());
+  } catch (error) {
+    console.log(error);
+    yield put(logoutRejected());
+  }
+}
+
 export function* onLogInStart() {
   yield takeLatest(authTypes.LOGIN_PENDING, LoginStart);
 }
@@ -74,6 +95,10 @@ export function* onRegisterStart() {
   yield takeLatest(authTypes.REGISTER_PENDING, RegisterStart);
 }
 
+export function* onLogoutStart(){
+  yield takeLatest(authTypes.LOGOUT_PEDING ,LogoutStart )
+}
+
 export function* authSagas() {
-  yield all([call(onLogInStart), call(onRegisterStart)]);
+  yield all([call(onLogInStart), call(onRegisterStart) , call(onLogoutStart)]);
 }

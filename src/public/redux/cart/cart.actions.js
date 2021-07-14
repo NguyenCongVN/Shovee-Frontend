@@ -40,6 +40,27 @@ export const postCartRejected = () => {
   };
 };
 
+
+export const deleteCartPending = (id, token , wantDecrease) => {
+  return {
+    type: cartType.DELETE_CART_PENDING,
+    payload : {id, token , wantDecrease}
+  };
+};
+
+export const deleteCartSuccess = (cartResponse) => {
+  return {
+    type: cartType.DELETE_CART_FULFILLED,
+    payload: cartResponse,
+  };
+};
+
+export const deleteCartRejected = () => {
+  return {
+    type: cartType.DELETE_CART_REJECTED,
+  };
+};
+
 export const changePage = (page) => {
   return {
     type: cartType.PAGE,

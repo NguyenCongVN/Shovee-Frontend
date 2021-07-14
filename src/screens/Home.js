@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import OneSignal from "react-native-onesignal";
+
 import {
   Animated,
   Platform,
@@ -33,7 +33,10 @@ import {
   getMoreProductPending,
 } from "../public/redux/product/product.actions";
 import { getCartPending } from "../public/redux/cart/cart.actions";
-import { getWishlist } from "../public/redux/wishlist/wishlist.actions";
+import {
+  configOneSignal,
+  confirmNotification,
+} from "../public/redux/checkout/checkout.actions";
 import dataShopeeLive from "../components/dummydata/live.shopee";
 import dataShopeeMall from "../components/dummydata/shopee.mall";
 
@@ -162,13 +165,13 @@ class CardsProduct extends Component {
                   alignItems: "center",
                 }}
               >
+                <Text style={{ color: "#ee4d2d", fontSize: 16 }}>
+                  {this.props.item.price}
+                </Text>
                 <Text
                   style={{ color: "#ee4d2d", fontSize: 12, marginTop: 3.5 }}
                 >
                   VNĐ
-                </Text>
-                <Text style={{ color: "#ee4d2d", fontSize: 16 }}>
-                  {this.props.item.price}
                 </Text>
               </View>
             </View>
@@ -220,7 +223,7 @@ class FlashSale extends Component {
         </View>
         <View style={{ alignItems: "center", paddingTop: 5 }}>
           <Text style={{ color: "#ee4d2d", fontSize: 16 }}>
-            Rp{this.props.item.harga}
+            {this.props.item.harga} VNĐ
           </Text>
         </View>
       </TouchableOpacity>
@@ -339,6 +342,11 @@ class ShopeeMall extends Component {
 class Home extends Component {
   constructor(props) {
     super(props);
+
+    this.deviceID = "";
+    if (!this.props.checkout.isOneSignalConfigured) {
+      this.props.configOneSignal();
+    }
 
     this.state = {
       page: 1,
@@ -461,6 +469,9 @@ class Home extends Component {
 
   componentWillUnmount() {
     this.willFocusSubscription.remove();
+    // OneSignal.removeEventListener("received", this.onReceived);
+    // OneSignal.removeEventListener("opened", this.onOpened);
+    // OneSignal.removeEventListener("ids", this.onIds);
   }
 
   _bootstrapAsync = async () => {
@@ -486,9 +497,54 @@ class Home extends Component {
         page: this.state.page + 1,
       },
       () => {
-        console.log(this.state.page)
+        console.log(this.state.page);
         this.props.getMoreProductPending(this.state.page);
       }
+    );
+  }
+
+  _renderNotification() {
+    return (
+      <React.Fragment>
+        <View
+          style={{
+            position: "absolute",
+            bottom: 20,
+            right: -5,
+            backgroundColor: "orange",
+            zIndex: 2000,
+            width: 400,
+            height: 50,
+            borderTopLeftRadius: 10,
+            borderBottomLeftRadius: 10,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "row",
+          }}
+        >
+          <Text style={{ color: "white", fontSize: 15 }}>
+            {this.props.checkout.notification_msg}
+          </Text>
+          <TouchableOpacity
+            style={{
+              width: 40,
+              height: 30,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "white",
+              borderRadius: 10,
+              marginLeft: 15,
+            }}
+            onPress={() => {
+              this.props.confirmNotification();
+            }}
+          >
+            <AntDesign name="check" />
+          </TouchableOpacity>
+        </View>
+      </React.Fragment>
     );
   }
 
@@ -726,7 +782,7 @@ class Home extends Component {
                     fontWeight: "300",
                   }}
                 >
-                  Hàng của bạn
+                  Hàng hóa
                 </Text>
               </View>
 
@@ -874,6 +930,8 @@ class Home extends Component {
         >
           {this._renderScrollViewContent()}
         </Animated.ScrollView>
+        {this.props.checkout.notification_msg !== "" &&
+          this._renderNotification()}
         <Animated.View
           pointerEvents="none"
           style={[
@@ -1050,6 +1108,7 @@ const mapStateToProps = (state) => {
     cart: state.cart,
     products: state.products,
     wishlist: state.wishlist,
+    checkout: state.checkout,
   };
 };
 
@@ -1058,7 +1117,9 @@ const mapDispathToProps = (dispatch) => {
     getCategories: () => dispatch(getCategoriesPending()),
     getCartPending: () => dispatch(getCartPending()),
     getProductPending: () => dispatch(getProductPending()),
-    getMoreProductPending : (page) => dispatch(getMoreProductPending(page))
+    getMoreProductPending: (page) => dispatch(getMoreProductPending(page)),
+    configOneSignal: () => dispatch(configOneSignal()),
+    confirmNotification: () => dispatch(confirmNotification()),
   };
 };
 

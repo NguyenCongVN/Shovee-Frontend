@@ -8,7 +8,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import ImagePicker from 'react-native-image-picker'
 import { connect } from 'react-redux';
 import { getCategoriesPending } from '../public/redux/categories/categories.actions';
-import { addProductPending } from '../public/redux/product/product.actions';
+import { addProductPending , getProductPending } from '../public/redux/product/product.actions';
 
 class App extends Component {
 	constructor(props) {
@@ -45,14 +45,17 @@ class App extends Component {
 	}
 
 	componentDidUpdate(){
-		if(this.props.products.isSuccess && !this.props.products.isLoading)
+		if(this.props.products.isSuccess && !this.props.products.isLoading && !this.props.products.isFetched)
 		{
 			alert('Thành Công')
+			this.props.products.isSuccess = false
+			this.props.products.isLoading = false
+			this.props.getProductPending();
 			this.props.navigation.goBack();
 		}
-		if(this.props.products.isError)
+		if(this.props.products.isError && !this.props.products.isLoading)
 		{
-			alert('Lỗi')
+			alert(`Lỗi ${this.props.product.msg}`)
 		}
 	}
 
@@ -93,7 +96,7 @@ class App extends Component {
 			this.state.category, 
 			this.state.price, 
 			this.state.image, 
-			'Yogyakarta', 
+			'Thành Phố Hà Nội', 
 			this.state.description, 
 			this.state.name, 
 			this.state.stok, 
@@ -160,8 +163,8 @@ class App extends Component {
 							<TextInput placeholder="Chọn giá bán" onChangeText={val => {this.setState({price: val})}} style={{flex: 1}} />
 						</View>
 						<View style={styles.items}>
-							<Text style={{color: '#000', flex: 1}}>Cửa hàng</Text>
-							<TextInput placeholder="Chọn cửa hàng" onChangeText={val => {this.setState({stok: val})}} style={{flex: 1}} />
+							<Text style={{color: '#000', flex: 1}}>Số lượng hàng</Text>
+							<TextInput placeholder="Nhập vào số lượng" onChangeText={val => {this.setState({stok: val})}} style={{flex: 1}} />
 						</View>
 						<View style={styles.items}>
 							<Text style={{color: '#000', flex: 1}}>Nhãn hiệu</Text>
@@ -232,7 +235,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		getCategoriesPending : () => dispatch(getCategoriesPending()),
-		addProductPending : (data) => dispatch(addProductPending(data))
+		addProductPending : (data) => dispatch(addProductPending(data)),
+		getProductPending : () => dispatch(getProductPending())
 	}
 }
 

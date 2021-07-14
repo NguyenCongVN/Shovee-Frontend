@@ -10,7 +10,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Foundation from 'react-native-vector-icons/Foundation'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
-import { fetchProductsByUser } from '../public/redux/product/product.actions';
+import { fetchProductByUserPending } from '../public/redux/product/product.actions';
 
 import { connect } from 'react-redux';
 
@@ -23,7 +23,7 @@ class SellProduct extends Component {
                     <Text numberOfLines={2} style={{fontSize:15}}>{this.props.item.name}</Text>
                 </View>
                 <View style={{paddingHorizontal:10, paddingBottom:10}}>
-                    <Text numberOfLines={2} style={{fontSize:16, color:'#EE4D2D'}}>Rp {this.props.item.price}</Text>
+                    <Text numberOfLines={2} style={{fontSize:16, color:'#EE4D2D'}}> {this.props.item.price} VNĐ</Text>
                 </View>
             </TouchableOpacity>
 		)
@@ -43,7 +43,7 @@ class App extends Component {
     }
 
     fetchProducts = async (token) => {
-    	await this.props.dispatch(fetchProductsByUser(token))
+    	await this.props.fetchProductByUserPending(this.props.user.data._id ,token)
   	}
 
 	_bootstrapAsync = async () => {
@@ -208,7 +208,13 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = dispatch => {
+	return {
+		fetchProductByUserPending : ( id ,token) => dispatch(fetchProductByUserPending( id ,token)) 
+	}
+}
+
+export default connect(mapStateToProps , mapDispatchToProps)(App)
 
 const styles = StyleSheet.create({
 	header: {

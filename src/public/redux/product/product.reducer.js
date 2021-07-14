@@ -1,10 +1,12 @@
 import productTypes from './product.types'
 
 const initialState = {
-    isLoading: true,
+    isLoading: false,
     isError: false,
     isSuccess : false,
-    produk: []
+    isFetched : false,
+    produk: [],
+    msg : ''
 }
 
 export default product = (state = initialState, action) => {
@@ -12,7 +14,8 @@ export default product = (state = initialState, action) => {
         case productTypes.GET_PRODUCTS_PENDING:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
+                isFetched : false
             }
 
         case productTypes.GET_PRODUCTS_REJECTED:
@@ -27,24 +30,28 @@ export default product = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 isError: false,
+                isSuccess : true,
+                isFetched : true,
                 produk: action.payload.data,
                 data: action.payload.data.data
             }
         case productTypes.POST_PRODUCT_PENDING:
             return {
                 ...state,
-                isLoading: false,
+                isLoading: true,
                 isError: false,
                 isSuccess : false,
-                // data: [action.payload.data.data, ...state.data]
+                isFetched : false
             }
 
         case productTypes.POST_PRODUCT_REJECTED:
             return {
                 ...state,
                 isLoading: false,
-                isError: false,
-                data: [action.payload.data.data, ...state.data]
+                isError: true,
+                isSuccess : false,
+                isFetched : false,
+                msg : action.payload.response.data.msg
             }
 
         case productTypes.POST_PRODUCT_FULFILLED:
@@ -53,6 +60,7 @@ export default product = (state = initialState, action) => {
                 isLoading: false,
                 isError: false,
                 isSuccess : true,
+                isFetched : false,
                 data: [action.payload.data.data, ...state.data]
             }
 

@@ -32,51 +32,51 @@ export default class ListSearch extends Component {
             data: [
                 {
                     id: '1',
-                    title: 'Charger toshiba original19v-3,42Ac640,L640,L730,L745,C800 C840 L10 L510 T135 C40 M35X M40X B40a T110',
+                    title: 'Sạc pin laptop',
                     price: '85.000',
-                    sellerAddress: 'KOTA JAKARTA UTARA',
+                    sellerAddress: 'Thành phố Hà Nội',
                     image: 'https://cf.shopee.co.id/file/88181e18e9c400f004be5ad78f145d40_tn'
                 },
                 {
                     id: '2',
-                    title: 'Laptop Bekas Second ASUS X200 - RAM 2GB - HDD 500GB - Slim Elegan Bekas Second Berkualitas',
+                    title: 'Laptop ASUS X200 - RAM 2GB - HDD 500GB',
                     price: '2.025.000',
-                    sellerAddress: 'KOTA JAKARTA UTARA',
+                    sellerAddress: 'Thành phố Hà Nội',
                     image: 'https://cf.shopee.co.id/file/7789f8cb30eefe0a75f9beba04022f47_tn'
                 },
                 {
                     id: '3',
-                    title: '★Star Seller★ Laptop Core i5 RAM 8GB 500GB, Laptop Bekas Second Seken Core i5 Ram 8GB - Twenty Cell',
+                    title: '★Bán chạy★ Laptop Core i5 RAM 8GB 500GB, Laptop Bekas Core i5 Ram 8GB',
                     price: '3.650.000',
-                    sellerAddress: 'KOTA JAKARTA UTARA',
+                    sellerAddress: 'Thành phố Hà Nội',
                     image: 'https://cf.shopee.co.id/file/7ad55e22e62899b1df88be137dd5f80f_tn'
                 },
                 {
                     id: '4',
-                    title: 'Laptop Lenovo 15.6" Core i5 / 500GB / Ram 4GB - Laptop Bekas Lenovo 15.6 inch',
+                    title: 'Laptop Lenovo 15.6" Core i5 / 500GB / Ram 4GB - Laptop Lenovo 15.6 inch',
                     price: '3.000.000',
-                    sellerAddress: 'KOTA SUBANG UTARA',
+                    sellerAddress: 'Thành phố Hà Nội',
                     image: 'https://cf.shopee.co.id/file/14a90f185c88aa0a65fc563c91250ffb_tn'
                 },
                 {
                     id: '5',
                     title: 'Laptop Bekas Second ASUS X200 - RAM 2GB - HDD 500GB - Slim Elegan Bekas Second Berkualitas',
                     price: '2.025.000',
-                    sellerAddress: 'KOTA JAKARTA UTARA',
+                    sellerAddress: 'Thành phố Hà Nội',
                     image: 'https://cf.shopee.co.id/file/7789f8cb30eefe0a75f9beba04022f47_tn'
                 },
                 {
                     id: '6',
-                    title: '★Star Seller★ Laptop Core i5 RAM 8GB 500GB, Laptop Bekas Second Seken Core i5 Ram 8GB - Twenty Cell',
+                    title: '★Bán chạy★ Laptop Core i5 RAM 8GB 500GB',
                     price: '3.650.000',
-                    sellerAddress: 'KOTA JAKARTA UTARA',
+                    sellerAddress: 'Thành phố Hà Nội',
                     image: 'https://cf.shopee.co.id/file/7ad55e22e62899b1df88be137dd5f80f_tn'
                 },
                 {
                     id: '7',
-                    title: 'Laptop Lenovo 15.6" Core i5 / 500GB / Ram 4GB - Laptop Bekas Lenovo 15.6 inch',
+                    title: 'Laptop Lenovo 15.6" Core i5 / 500GB / Ram 4GB - Laptop Lenovo 15.6 inch',
                     price: '3.000.000',
-                    sellerAddress: 'KOTA SUBANG UTARA',
+                    sellerAddress: 'Thành phố Hà Nội',
                     image: 'https://cf.shopee.co.id/file/14a90f185c88aa0a65fc563c91250ffb_tn'
                 }
             ]

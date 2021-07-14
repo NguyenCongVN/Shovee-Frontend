@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import {AsyncStorage, StyleSheet, Text, ScrollView, TextInput, View, TouchableOpacity, TouchableHighlight, Image, Button} from 'react-native'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import AntDesign from 'react-native-vector-icons/AntDesign'
-
+import {logoutPending} from '../../public/redux/auth/auth.actions'
 import NavigationService from '../NavigationService.js';
 
-export default class App extends Component {
+class App extends Component {
 	constructor(props) {
         super(props);
   
@@ -15,19 +16,17 @@ export default class App extends Component {
     }
 
     userLogout = () => {
-    	AsyncStorage.removeItem('Token', (error) => {
-			if (error) {
-				// this.setState({
-				// 	isLogin: true
-				// })
-				console.log(error)
-			} else {
-				console.log('Not Login')
-				// this.props.navigation.replace('Me')
-				NavigationService.navigate('Me');
-			}
-		})
+    	this.props.logoutPending()
     }
+
+	componentDidUpdate() {
+		console.log(this.props.auth.isSuccess ,  this.props.auth.isLogin)
+		if(this.props.auth.isSuccess && !this.props.auth.isLogin)
+		{
+			console.log('Logout Success !')
+			NavigationService.navigate('Me');
+		}
+	}
 
 	render(){
 		return(
@@ -70,6 +69,20 @@ export default class App extends Component {
 		)
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		auth : state.auth
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		logoutPending : () => dispatch(logoutPending())
+	}
+}
+
+export default connect(mapStateToProps , mapDispatchToProps)(App)
 
 const styles = StyleSheet.create({
 	header: {

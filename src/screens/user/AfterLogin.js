@@ -148,8 +148,8 @@ class AfterLogin extends Component {
               size={25}
               color="#3a5998"
             />
-            <Text style={styles.textPesanan}>Pesanan Saya</Text>
-            <Text style={styles.textPesanan}>Lihat Riwayat Pesanan</Text>
+            <Text style={styles.textPesanan}>Đơn hàng của tôi</Text>
+            <Text style={styles.textPesanan}>Xem lịch sử đặt hàng</Text>
             <SimpleLineIcons
               name="arrow-right"
               style={{ flex: 1, marginRight: "-1%" }}
